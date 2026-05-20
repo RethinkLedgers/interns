@@ -273,6 +273,29 @@ Avoid vague prompts like "fix git" or "make a PR." Tell it the branch name, the 
 
 **Safety:** never let opencode run `git push --force`, `git reset --hard`, or `rm -rf` without you understanding why. When in doubt, ask it to **show the diff** before committing.
 
+### Your personal working folder in this repo
+
+Inside this repo, every intern gets a folder at `working-folders/<your-firstname>/` for your profile, weekly progress reports, and small work products.
+
+**Create yours on day one** as your first PR:
+
+```bash
+cp -r working-folders/_template working-folders/<your-firstname>
+git add working-folders/<your-firstname>
+git commit -m "Add working folder for <your-firstname>"
+git push -u origin <your-firstname>/setup
+```
+
+(Use a branch and PR — don't push straight to `main`. See Section 4 above.)
+
+The template includes:
+
+- `README.md` — fill in your bio, project, and contact info
+- `progress-reports/` — drop one markdown file per week, every Friday EOD
+- `workproducts/` — small things you build that live alongside your notes
+
+See [`working-folders/README.md`](./working-folders/README.md) in this repo for the full convention and rules. **Weekly progress reports are required** — they're the main thing your manager and Arianna read before your 1:1.
+
 ---
 
 ## 5. Connect MCP servers to opencode

@@ -1,0 +1,24 @@
+# Admin-only docs — contain sensitive contacts, budgets, and onboarding runbook
+ONBOARDING-ADMIN.md
+ONBOARDING-ADMIN.*.md
+
+# Local opencode config (may contain API keys)
+opencode.json
+opencode.jsonc
+.opencode/
+
+# Composio local state
+.composio/
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+*~
