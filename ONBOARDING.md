@@ -341,6 +341,78 @@ Once a server is enabled, opencode discovers its tools automatically. Reference 
 
 Run `/mcp` inside opencode to list active servers and their tools.
 
+### 5b. Composio — one MCP server for 1,000+ apps
+
+Wiring up a separate MCP for every SaaS app you touch (GitHub, Slack, Linear, Gmail, Jira, Figma, Notion…) gets old fast, and stuffing all those tool definitions into the model's context wastes thousands of tokens before you've even typed a prompt. **[Composio](https://composio.dev)** solves both problems: it's a single MCP server that brokers access to 1,000+ apps via a **tool router**. The model only sees the tools it actually needs for the current task — the rest are discovered on demand.
+
+This matters for two things you'll do constantly: **building skills** (each skill needs a specific bundle of tools — Composio is where those tools come from) and **connecting to APIs** (you authenticate once with Composio, then any future agent inherits that connection).
+
+#### Install Composio
+
+```bash
+curl -fsSL https://composio.dev/install | bash
+composio login
+```
+
+`composio login` opens a browser to authenticate. Free tier is fine for the internship.
+
+#### Connect apps you'll actually use
+
+From the terminal, link the apps your work needs. Each command opens an OAuth flow in the browser:
+
+```bash
+composio add github
+composio add linear
+composio add slack
+composio add gmail
+composio add notion
+```
+
+Run `composio apps` to see the full catalog, and `composio integrations` to see what you've already connected.
+
+#### Wire Composio into opencode
+
+Add this to your `opencode.json` (global at `~/.config/opencode/opencode.json` or per-project):
+
+```json
+{
+  "$schema": "https://opencode.ai/config.json",
+  "mcp": {
+    "composio": {
+      "type": "remote",
+      "url": "https://connect.composio.dev/mcp",
+      "enabled": true
+    }
+  }
+}
+```
+
+Restart opencode. Run `/mcp` and you should see `composio` listed with its meta-tools (`SEARCH_TOOLS`, `EXECUTE_TOOL`, etc.). Try it:
+
+> *"Use composio to find my three most-recently-assigned Linear issues and summarize them."*
+
+opencode will ask Composio's router to find the right Linear tool, call it, and return results — without ever loading the full Linear API surface into context.
+
+#### How Composio supercharges skills
+
+Recall from Section 6 that an opencode skill is a markdown agent with a system prompt and a permission scope. Composio is where you give that skill **superpowers it didn't have on its own**:
+
+| Skill idea | Tools Composio supplies |
+|---|---|
+| `ticket-triage` — reads new Linear issues, files duplicates, asks for clarification | Linear (read/comment), GitHub (search issues), Slack (DM author) |
+| `pr-reviewer` — reads diffs, runs lint, leaves review comments | GitHub (read PR, post review), Sentry (link related errors) |
+| `meeting-notes` — turns a Zoom transcript into a wiki note + Linear tickets | Zoom, Notion or Obsidian, Linear (create issue) |
+| `daily-standup` — gathers each agent's progress, posts a digest to Slack | Linear, GitHub, Slack |
+
+The skill's system prompt just says *"You have access to Composio's tool router — use `SEARCH_TOOLS` to find what you need."* You don't have to enumerate tools at build time.
+
+#### Mental model — Composio vs. raw MCP
+
+- **Raw MCP server** (Section 5): one server = one set of tools, all loaded into context. Right for narrow, local capabilities (filesystem, custom internal APIs).
+- **Composio MCP**: one server = router into a catalog of 1,000+ tools, loaded on demand. Right for SaaS/business apps and anything where the tool surface is large.
+
+Use both. Local custom MCPs for project-specific glue; Composio for everything off-the-shelf.
+
 ---
 
 ## 6. Create or find skills (agents) for opencode
@@ -553,6 +625,9 @@ The split is roughly: **code answers "how does it work,"** the **wiki answers "w
 | Add a model provider | `/connect` inside opencode |
 | Switch model | `/model` inside opencode |
 | List MCP servers | `/mcp` inside opencode |
+| Install Composio | `curl -fsSL https://composio.dev/install \| bash` |
+| Authenticate Composio | `composio login` |
+| Connect an app to Composio | `composio add <github\|slack\|linear\|...>` |
 | Create an agent | `opencode agent create` |
 | Test SSH to GitHub | `ssh -T git@github.com` |
 | Clone private repo | `git clone git@github.com:RethinkLedgers/<repo>.git` |
