@@ -6,8 +6,11 @@ Welcome. This guide walks you through everything you need to be productive on da
 2. Pick a **free model** so you don't need a paid API key
 3. Set up **GitHub + SSH** so you can clone, pull, and push private repos
 4. Sync work between your laptop and GitHub, and the commands to give opencode
-5. Connect **MCP servers** to opencode and create/find **skills (agents)**
-6. Get oriented on **Paperclip** and how to use opencode as its underlying LLM
+5. Connect **MCP servers** to opencode — including **Composio** for 1,000+ apps
+6. Create or find **skills (agents)** for opencode
+7. Get oriented on **Paperclip** and how to use opencode as its underlying LLM
+8. Use the **shared Obsidian wiki** as the team's knowledge base
+9. Work in **Twenty CRM** at `rethink-labs.twenty.com` and wire it into opencode
 
 > If anything in this doc is wrong or stale, fix it in the repo and open a PR. Don't suffer in silence.
 
@@ -616,6 +619,101 @@ The split is roughly: **code answers "how does it work,"** the **wiki answers "w
 
 ---
 
+## 9. CRM — Twenty and `rethink-labs.twenty.com`
+
+### 9.1 What Twenty is
+
+[Twenty](https://twenty.com) is an open-source CRM — think Salesforce or HubSpot, but MIT-licensed, GraphQL-first, and built for technical teams. It's the #1 open-source CRM on GitHub and the platform we use for tracking people, companies, opportunities, and the work surrounding them.
+
+Why it matters for the internship:
+
+- **Standard CRM primitives.** People, Companies, Opportunities (deals), Notes, Tasks, custom Objects. Pipelines and Kanban views for any object.
+- **GraphQL + REST APIs.** Every field on every object is queryable and mutable through the API the moment you create it — no extra config, no schema regeneration.
+- **Native MCP server in every Cloud workspace.** This is the part that makes Twenty special for our stack: opencode (and any other MCP-aware agent) can read and write CRM data directly, with workspace-scoped API keys. No glue code required.
+- **Custom objects + no-code workflows.** You can model domain-specific entities (e.g. "Onboarding Cohort," "Compliance Filing") without touching the codebase.
+
+### 9.2 `rethink-labs.twenty.com` — our workspace
+
+`rethink-labs.twenty.com` is the **Rethink Labs Twenty Cloud workspace** — the live CRM instance the team runs day-to-day. It's auth-gated (the page just says "Twenty" until you log in), so you need an account on the workspace before you can see anything.
+
+> **TODO — fill in:** who issues workspace invites (likely your manager or an admin on the RethinkLedgers team), and the SSO/email-domain rules for signing in.
+
+What lives there (typical for a sales/ops CRM):
+
+- **People & Companies** — every prospect, customer, partner, and the relationships between them.
+- **Opportunities** — deals in flight, with stage, value, owner, and close date.
+- **Notes & Tasks** — meeting recaps, follow-ups, internal context attached to a record.
+- **Custom objects** — anything Rethink Labs models beyond the defaults. Ask before assuming an object is generic vs. team-specific.
+
+### 9.3 Day-one access checklist
+
+1. Ask your manager for an invite to `rethink-labs.twenty.com`.
+2. Sign in, take the in-app tour.
+3. **Settings → Members:** confirm your role (Admin vs. Member determines what you can edit and whether you can mint API keys).
+4. **Settings → APIs & Webhooks → Generate API key** — create one named `opencode-<your-name>` with a short expiration (30–90 days). You'll use this in Section 9.5 below.
+5. Star a few real records (a customer, a deal) so the Home view is useful from the start.
+
+> **Don't experiment in production.** Twenty has no "test mode." If you want to try a workflow or custom object, ask whether to use the prod workspace with a `[TEST]` prefix on the record name, or whether the team maintains a separate sandbox workspace.
+
+### 9.4 Conventions
+
+- **Don't bulk-edit without asking.** The API supports 50k-record imports — easy to nuke a pipeline by accident. Get a second pair of eyes on anything that touches >10 records.
+- **Notes > Slack messages.** If a piece of context (customer call summary, blocker, decision) belongs to a record, write it as a Note on that record. Future-you will find it; future-you will not find a Slack thread from August.
+- **Use the right object.** Don't put a person's notes on the company record or vice versa. Twenty's join behavior depends on this.
+- **Custom field changes are schema changes.** Adding a field is fine; renaming or deleting one can break integrations. Coordinate with the team before changing custom-object schemas.
+
+### 9.5 Connect Twenty to opencode (the fun part)
+
+Because every Twenty Cloud workspace ships a native MCP server, you can give opencode CRM superpowers in three lines of config.
+
+1. Generate an API key in Twenty: **Settings → APIs & Webhooks → Generate API key** (Section 9.3 step 4).
+2. Add this to your `opencode.json` (use the per-project config if the key should only apply to one repo, global config otherwise):
+
+   ```json
+   {
+     "$schema": "https://opencode.ai/config.json",
+     "mcp": {
+       "twenty": {
+         "type": "remote",
+         "url": "https://rethink-labs.twenty.com/mcp",
+         "enabled": true,
+         "headers": {
+           "Authorization": "Bearer YOUR_TWENTY_API_KEY"
+         }
+       }
+     }
+   }
+   ```
+
+3. Restart opencode and run `/mcp` — you should see `twenty` listed alongside any other servers (e.g. `composio`).
+
+> **Keep that key out of git.** If `opencode.json` lives inside a repo, add it to `.gitignore`, or move the secret into an env var and reference it (`"Authorization": "Bearer ${env:TWENTY_API_KEY}"`) where supported.
+
+Now try prompts like:
+
+> *"Use the twenty MCP to list every Opportunity in stage `Negotiation` with a close date this month, sorted by value."*
+>
+> *"Find the Person record for `jane@acme.com` and add a Note summarizing today's call. Then create a Task for me to follow up next Tuesday."*
+>
+> *"Show me the Company schema — which custom fields exist on it?"*
+
+### 9.6 Composio vs. native Twenty MCP
+
+Both work, with a useful distinction:
+
+- **Native Twenty MCP** (this section) — direct, low-latency, full schema access including custom objects in our workspace. Best when you want deep CRM work.
+- **Composio's Twenty toolkit** (Section 5b) — useful inside cross-app workflows where the same agent also touches Slack, Linear, etc. Slightly less customized to our schema, but you only authenticate once.
+
+Default to the native MCP for CRM-heavy tasks and reach for Composio when you're orchestrating across many apps.
+
+### 9.7 Where to learn more
+
+- [twenty.com](https://twenty.com) — product home, pricing, feature tour
+- [twentyhq/twenty on GitHub](https://github.com/twentyhq/twenty) — source, issues, roadmap
+- [Twenty docs](https://twenty.com/developers) — GraphQL/REST API reference and MCP setup
+
+---
+
 ## Cheat sheet
 
 | Task | Command |
@@ -636,3 +734,5 @@ The split is roughly: **code answers "how does it work,"** the **wiki answers "w
 | Install Obsidian (mac) | `brew install --cask obsidian` |
 | Install Obsidian (win) | `winget install Obsidian.Obsidian` |
 | Clone the team wiki | `git clone git@github.com:RethinkLedgers/<wiki-repo>.git ~/Obsidian/RethinkLedgers` |
+| Open the CRM | [rethink-labs.twenty.com](https://rethink-labs.twenty.com) |
+| Generate Twenty API key | Twenty → Settings → APIs & Webhooks |
