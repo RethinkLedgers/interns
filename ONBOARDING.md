@@ -6,7 +6,7 @@ Welcome. This guide walks you through everything you need to be productive on da
 2. Pick a **free model** so you don't need a paid API key
 3. Set up **GitHub + SSH** so you can clone, pull, and push private repos
 4. Sync work between your laptop and GitHub, and the commands to give opencode
-5. Connect **MCP servers** to opencode — including **Composio** for 1,000+ apps
+5. Connect **MCP servers** to opencode — including **Composio** for managed app authentication
 6. Create or find **skills (agents)** for opencode
 7. Get oriented on **Paperclip** and how to use opencode as its underlying LLM
 8. Use the **shared Obsidian wiki** as the team's knowledge base
@@ -367,11 +367,15 @@ Once a server is enabled, opencode discovers its tools automatically. Reference 
 
 Run `/mcp` inside opencode to list active servers and their tools.
 
-### 5b. Composio — one MCP server for 1,000+ apps
+### 5b. Composio — managed authentication for 1,000+ apps
 
-Wiring up a separate MCP for every SaaS app you touch (GitHub, Slack, Linear, Gmail, Jira, Figma, Notion…) gets old fast, and stuffing all those tool definitions into the model's context wastes thousands of tokens before you've even typed a prompt. **[Composio](https://composio.dev)** solves both problems: it's a single MCP server that brokers access to 1,000+ apps via a **tool router**. The model only sees the tools it actually needs for the current task — the rest are discovered on demand.
+The hard part of connecting an AI agent to a real app — GitHub, Slack, Linear, Gmail, Notion — is almost never the API call itself. It's **authentication**: OAuth handshakes, storing tokens, refreshing them before they expire, juggling scopes, and keeping each person's credentials separate. Doing that by hand for every app and every intern is a maintenance sinkhole.
 
-This matters for two things you'll do constantly: **building skills** (each skill needs a specific bundle of tools — Composio is where those tools come from) and **connecting to APIs** (you authenticate once with Composio, then any future agent inherits that connection).
+**[Composio](https://composio.dev)** exists to handle exactly that. Think of it as a **managed authentication layer for AI agents**: you authorize an app **once** through Composio's OAuth flow, and Composio securely stores and refreshes those credentials from then on. opencode — or any other AI harness (Claude Code, Cursor, a custom agent) — can then act on that app **without ever touching the credentials itself**.
+
+Composio brokers 1,000+ apps this way through a single MCP connection. It also routes tool calls on demand, so opencode only loads the handful of tools a task actually needs instead of thousands of definitions — but the headline feature is the auth: **connect once, and every agent you build inherits that connection.**
+
+This is why Composio matters for two things you'll do constantly: **building skills** (a skill needs authenticated access to specific apps — Composio supplies it) and **connecting to APIs** (authenticate through Composio once, and never hand-wire an OAuth flow again).
 
 #### Install Composio
 
@@ -382,9 +386,9 @@ composio login
 
 `composio login` opens a browser to authenticate. Free tier is fine for the internship.
 
-#### Connect apps you'll actually use
+#### Authenticate the apps you'll use (the one-time step)
 
-From the terminal, link the apps your work needs. Each command opens an OAuth flow in the browser:
+From the terminal, link the apps your work needs. Each command opens an OAuth flow in the browser — this is the **one** time you log in; Composio holds and refreshes the connection afterward:
 
 ```bash
 composio add github
@@ -434,10 +438,10 @@ The skill's system prompt just says *"You have access to Composio's tool router 
 
 #### Mental model — Composio vs. raw MCP
 
-- **Raw MCP server** (Section 5): one server = one set of tools, all loaded into context. Right for narrow, local capabilities (filesystem, custom internal APIs).
-- **Composio MCP**: one server = router into a catalog of 1,000+ tools, loaded on demand. Right for SaaS/business apps and anything where the tool surface is large.
+- **Raw MCP server** (Section 5): one server = one set of tools you wire up and authenticate yourself. Right for narrow, local capabilities (filesystem, custom internal APIs) where there's no login to manage.
+- **Composio MCP**: one connection = managed authentication plus on-demand access to a catalog of 1,000+ apps. Right for anything that needs a login — Composio owns the OAuth tokens and refreshes them, so opencode never sees a raw credential.
 
-Use both. Local custom MCPs for project-specific glue; Composio for everything off-the-shelf.
+Use both. Local custom MCPs for project-specific glue; Composio for every off-the-shelf app that needs you to log in.
 
 ---
 
@@ -748,7 +752,7 @@ Default to the native MCP for CRM-heavy tasks and reach for Composio when you're
 | List MCP servers | `/mcp` inside opencode |
 | Install Composio | `curl -fsSL https://composio.dev/install \| bash` |
 | Authenticate Composio | `composio login` |
-| Connect an app to Composio | `composio add <github\|slack\|linear\|...>` |
+| Authenticate an app via Composio | `composio add <github\|slack\|linear\|...>` |
 | Create an agent | `opencode agent create` |
 | Test SSH to GitHub | `ssh -T git@github.com` |
 | Clone private repo | `git clone git@github.com:RethinkLedgers/<repo>.git` |
