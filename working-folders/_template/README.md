@@ -27,7 +27,7 @@
 ## How to reach me
 
 - **Slack:** @your-handle
-- **Email:** firstname.lastname@rtledgers.com
+- **Email:** firstname.lastname@rethink-labs.com
 - **Best hours:** e.g. "9am–5pm ET, Mon–Fri"
 
 ## Status
