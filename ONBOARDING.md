@@ -18,155 +18,314 @@ Welcome. This guide walks you through everything you need to be productive on da
 
 ## 1. Install opencode
 
-opencode is an open-source AI coding agent that runs in your terminal. Think Claude Code, but provider-agnostic — you bring your own model.
+**What is opencode?** opencode is an AI coding assistant that runs in your terminal (the black window where you type commands). You type or say what you want to build, and it writes code, runs commands, and edits files for you.
 
 ### macOS
 
-Pick **one** of these:
+**Before you start — do you have Homebrew?** Homebrew is a tool that installs other software on Mac. Open your Terminal app (search for "Terminal" in Spotlight). Type this and press Enter:
 
 ```bash
-# Homebrew (recommended)
-brew install anomalyco/tap/opencode
-
-# OR universal installer
-curl -fsSL https://opencode.ai/install | bash
-
-# OR npm (if you already have Node 18+)
-npm install -g opencode-ai
+brew --version
 ```
 
-Verify:
+- If you see `Homebrew` followed by a version number, you're all set.
+- If you see `command not found: brew`, install Homebrew first by running:
+  ```bash
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  ```
+  Follow the on-screen prompts (you may need to enter your Mac password). This can take a few minutes.
+
+**Install opencode using Homebrew (recommended):**
+
+```bash
+brew install anomalyco/tap/opencode
+```
+
+Wait for it to finish — you'll see a progress bar, then a message like `🍺 /opt/homebrew/Cellar/opencode/...` to confirm success.
+
+**Refresh your terminal** so it knows about the new program you just installed:
+
+```bash
+source ~/.zshrc
+```
+
+(Or just close and reopen your Terminal window.)
+
+**Verify the installation:**
 
 ```bash
 opencode --version
 ```
 
-### Windows
+You should see something like `v0.x.x`. If you see `command not found`, go back and run `source ~/.zshrc`, or open a fresh Terminal window.
 
-You have three reasonable paths. **WSL2 is strongly recommended** — most tooling (git, ssh, node) behaves more predictably on Linux, and every command in this doc works there unchanged.
+### If you're on Windows
 
-**Option A — WSL2 (recommended).** In PowerShell as Administrator:
+**Windows Subsystem for Linux (WSL2) is strongly recommended** — everything in this guide works the same way inside WSL.
+
+**Option A — WSL2 (recommended).** Open PowerShell as Administrator (right-click PowerShell → "Run as administrator"):
 
 ```powershell
 wsl --install -d Ubuntu
 ```
 
-Restart, finish the Ubuntu setup, then **inside the Ubuntu terminal** run the macOS Homebrew or curl command above.
+Your computer will restart. After that, launch "Ubuntu" from the Start menu. It will finish setting up and ask you to create a username and password. Now you're on Linux — follow the macOS Homebrew instructions above (yes, inside Ubuntu the Mac instructions work).
 
-**Option B — Native Windows via Scoop or Chocolatey.** In PowerShell:
-
+**Option B — Native Windows via Scoop.** In PowerShell:
 ```powershell
-# Scoop
 scoop install opencode
-
-# OR Chocolatey
-choco install opencode
 ```
 
-**Option C — npm.** If you have Node 18+ installed:
-
+**Option C — npm.** If you have Node 18+ already:
 ```powershell
 npm install -g opencode-ai
 ```
 
-Verify in a fresh PowerShell window:
-
+Verify:
 ```powershell
 opencode --version
 ```
 
-### First launch
+### First launch (everyone)
 
-In any project folder, run:
+In any project folder, type:
 
 ```bash
 opencode
 ```
 
-On first run it will prompt you to pick a model provider. Skip ahead to the next section before you pick anything.
+The first time you run this, opencode will say something like "No API provider configured" and ask you to pick one. **Do not pick anything yet** — go to section 2 first to set up a free model. When you come back, you'll use the `/connect` command to add the provider.
 
 ---
 
 ## 2. Pick a free model
 
-opencode supports 75+ providers via [models.dev](https://models.dev). **Important:** Anthropic restricted opencode's access to Claude models in early 2026, so don't plan on using Claude through opencode — use it through Claude Code instead.
+**What is a "model"?** Think of a model as the AI brain that powers opencode. Different models have different strengths — some are better at coding, some are faster, some are free.
 
-Below are the three best free options as of May 2026. Start with **OpenRouter** unless you have a reason not to.
+**What is an "API key"?** A secret code that proves you're allowed to use a particular model provider. You get it from the provider's website and paste it into opencode.
 
-### Option A — OpenRouter (recommended for coding)
+**Which one should you pick?** Start with **DeepSeek V4 via OpenRouter** — it's free and excellent at coding.
 
-OpenRouter aggregates many model providers and exposes several capable models with a free tier (currently strong options: DeepSeek V3, Qwen 2.5 Coder, Llama 3.3).
+### Recommended: DeepSeek V4 through OpenRouter
 
-1. Sign up at [openrouter.ai](https://openrouter.ai) (Google login works).
-2. Go to **Keys → Create Key**, copy the key.
-3. In opencode, run `/connect`, choose **OpenRouter**, paste the key.
-4. When picking a model, look for entries with `:free` in the name (e.g. `deepseek/deepseek-chat-v3:free`).
+**Step 1 — Create an OpenRouter account**
 
-### Option B — Google Gemini (huge free quota)
+Go to [openrouter.ai](https://openrouter.ai) in your web browser.
 
-Best if you want a large daily request budget and don't mind occasionally weaker code quality.
+Click the **Sign Up** or **Get Started** button. You can sign up with your Google account (click the Google button) or with any email address. Use your **msg2ai email** (the one your manager gave you for work).
 
-1. Sign in at [aistudio.google.com](https://aistudio.google.com).
-2. Click **Get API key → Create API key**.
-3. In opencode, run `/connect`, choose **Google Gemini**, paste the key.
-4. Pick `gemini-2.5-pro` (1M-token context).
+Once you're signed in, you'll land on the OpenRouter dashboard.
 
-### Option C — NVIDIA build.nvidia.com (free open models)
+**Step 2 — Create an API key**
 
-1. Create an account at [build.nvidia.com](https://build.nvidia.com).
-2. Generate an API key from your account page.
-3. In opencode, run `/connect`, search **NVIDIA**, paste the key.
-4. Pick a Nemotron or Llama variant.
+On the left sidebar, click **Keys** (or go to [openrouter.ai/keys](https://openrouter.ai/keys)).
+
+Click the **Create Key** button. A popup will appear showing a long string of random letters and numbers — **this is your API key**. Copy it to your clipboard (click the copy icon or select it and press Cmd+C on Mac / Ctrl+C on Windows).
+
+⚠️ **Important:** This is the only time you'll see this key. If you lose it, you'll need to create a new one.
+
+**Step 3 — Add the key to opencode**
+
+In your terminal (where opencode is running or where you're about to run it), opencode uses a command called `/connect` to add API providers.
+
+If you already ran `opencode` and it prompted you to pick a provider:
+- You'll see a list of providers. Type `OpenRouter` (or scroll to it with arrow keys) and press Enter.
+- It will ask for your API key. Paste it (Cmd+V on Mac, Ctrl+V on Windows — or right-click → Paste in some terminals).
+- Press Enter.
+
+If you haven't run opencode yet:
+- Run `opencode` from your terminal.
+- When asked to pick a provider, choose **OpenRouter** and paste your key.
+
+**Step 4 — Select the DeepSeek V4 model**
+
+After pasting your API key, opencode will show a list of available models. Look for one called **DeepSeek V4** — it may appear as something like `deepseek/deepseek-v4` or `deepseek/deepseek-chat-v4:free`.
+
+Use the arrow keys to scroll to it and press Enter.
+
+If you don't see DeepSeek V4 in the list:
+1. Type `/model` and press Enter
+2. Search for "deepseek v4" or "deepseek/deepseek"
+3. Select the one with `:free` at the end if available
+
+**That's it.** You now have a free AI coding assistant running on DeepSeek V4.
+
+### Alternative: Google Gemini (also free, huge daily quota)
+
+If OpenRouter isn't working for you or you want a backup:
+
+1. Go to [aistudio.google.com](https://aistudio.google.com).
+2. Sign in with your Google account (use your msg2ai email).
+3. Click **Get API key** → **Create API key**.
+4. Copy the key that appears.
+5. In opencode, type `/connect`, choose **Google Gemini**, paste the key.
+6. When asked to pick a model, choose `gemini-2.5-pro`.
 
 ### Switching models later
 
-Inside opencode, run `/model` to change models at any time. Run `/connect` again to add another provider.
+Want to try a different model later? Inside opencode, type:
+
+```
+/model
+```
+
+This shows the model list again — pick a new one anytime. You can add multiple providers by running `/connect` again.
+
+Need to check which provider and model you're currently using? Type `/model` and it will show your current selection.
 
 ---
 
 ## 3. Set up GitHub and SSH
 
-You will be added to the **RethinkLedgers** organization on GitHub. Most repos there are **private** — HTTPS clones will pester you for credentials constantly, so we use SSH keys.
+**What is GitHub?** GitHub is a website that stores and manages code. Think of it as Google Drive for code — your team's code lives there, and you download it to your laptop to work on it, then upload your changes back.
+
+**Why SSH?** Normally every time you download or upload code, GitHub would ask for your username and password. SSH keys skip that — you set it up once and it just works. You'll generate a pair of keys: a **private key** (like a key, stays on your laptop) and a **public key** (like a lock, you give it to GitHub).
 
 ### 3.1 Create a GitHub account (if you don't have one)
 
-1. Go to [github.com/signup](https://github.com/signup) and use your **work email** (`...@rethink-ai.com` or your assigned address).
-2. Enable 2FA: **Settings → Password and authentication → Enable two-factor**. Use an authenticator app (1Password, Authy, Google Authenticator). **Don't skip this — the org will require it.**
-3. Send your GitHub username to your manager so they can invite you to **RethinkLedgers**.
+If you already have a GitHub account, you can skip to step 3.
 
-### 3.2 Install git
+**Step 1 — Sign up**
 
-- **macOS:** `brew install git` (or `xcode-select --install` to get Apple's version).
-- **Windows (WSL):** `sudo apt update && sudo apt install git -y`
-- **Windows (native):** [git-scm.com/download/win](https://git-scm.com/download/win)
+Open your web browser and go to [github.com/signup](https://github.com/signup).
 
-Set your identity once:
+Enter:
+- **Email:** Use your **msg2ai email** (the work email your manager gave you).
+- **Password:** Create a strong password (use a password manager like 1Password if you have one).
+- **Username:** Choose something professional — ideally your first and last name (e.g. `ariannacant`). This will be your GitHub identity.
+- Verify you're human (the puzzle they show you).
+
+Click **Create account**.
+
+**Step 2 — Verify your email**
+
+GitHub will send a confirmation code to your msg2ai email. Open your email inbox, find the message from GitHub, and enter the code on the verification page.
+
+**Step 3 — Turn on two-factor authentication (2FA)**
+
+**What is 2FA?** An extra layer of security. Even if someone guesses your password, they can't log in without a code from your phone. The RethinkLedgers organization requires this.
+
+1. In GitHub, click your profile picture (top-right corner) → **Settings**.
+2. In the left sidebar, click **Password and authentication**.
+3. Scroll down to "Two-factor authentication" and click **Enable two-factor authentication**.
+4. Choose **Authenticator app** (not SMS).
+5. Open your authenticator app on your phone:
+   - Don't have one? Install **Google Authenticator** (iOS/Android), **Authy**, or use **1Password** if you have it.
+   - Scan the QR code shown on GitHub with your authenticator app.
+   - Enter the 6-digit code from the app into GitHub to confirm.
+6. Save your recovery codes (GitHub shows you a list of one-time use codes — save them in your password manager or take a screenshot).
+
+**Step 4 — Tell your manager your GitHub username**
+
+Look at the top-left corner of any GitHub page. You'll see a dropdown that says something like "Personal account" and below it your username (e.g. `ariannacant`).
+
+Send an email to your manager with your GitHub username so they can invite you to the **RethinkLedgers** organization. You won't be able to see any of the team's repos until they do this.
+
+### 3.2 Install git (if needed)
+
+**What is git?** The program that downloads and uploads code between your laptop and GitHub.
+
+Check if you already have it. In your terminal:
 
 ```bash
-git config --global user.name "Your Name"
-git config --global user.email "you@rethink-ai.com"
+git --version
 ```
+
+If you see something like `git version 2.x.x`, you already have it and can skip installation.
+
+**If you need to install it:**
+
+- **macOS:** Run `brew install git` in your terminal. (If `brew` isn't installed, run `xcode-select --install` instead — this installs Apple's version of git.)
+- **Windows (WSL):** `sudo apt update && sudo apt install git -y`
+- **Windows (native):** Download from [git-scm.com/download/win](https://git-scm.com/download/win) and run the installer.
+
+**Tell git who you are** (do this once):
+
+```bash
+git config --global user.name "Your Full Name"
+git config --global user.email "your-msg2ai-email@example.com"
+```
+
+Replace `"Your Full Name"` with your actual name (e.g. `"Arianna Cant"`) and the email with your actual msg2ai email.
 
 ### 3.3 Generate an SSH key
 
-Use **ed25519** — it's faster and shorter than RSA.
+Think of this as creating a key and a lock. The **private key** (the actual key) stays on your laptop. The **public key** (the lock) goes to GitHub.
+
+In your terminal, run:
 
 ```bash
-ssh-keygen -t ed25519 -C "you@rethink-ai.com"
+ssh-keygen -t ed25519 -C "your-msg2ai-email@example.com"
 ```
 
-Press Enter to accept the default path (`~/.ssh/id_ed25519`). When prompted for a passphrase, **set one** — it protects the key if your laptop is stolen.
+Replace the email with your actual msg2ai email. Here's what each part means:
+- `ssh-keygen` = the program that creates keys
+- `-t ed25519` = the type of key (ed25519 is modern and secure)
+- `-C "..."` = a comment/label so you remember what this key is for
 
-### 3.4 Add the key to your ssh-agent
+**What you'll see next:**
 
-**macOS:**
+```
+Generating public/private ed25519 key pair.
+Enter file in which to save the key (/Users/you/.ssh/id_ed25519):
+```
+
+Just press **Enter** to accept the default location. (Don't type anything — just press Enter.)
+
+Then it will ask:
+
+```
+Enter passphrase (empty for no passphrase):
+```
+
+**Set a passphrase** — yes, it's annoying, but it protects your key if your laptop is lost or stolen. Type something you'll remember (or use a password manager). You'll need to type it again to confirm:
+
+```
+Enter same passphrase again:
+```
+
+Type the same passphrase and press Enter.
+
+When it finishes, you'll see something like:
+
+```
+The key fingerprint is:
+SHA256:... your-msg2ai-email@example.com
+```
+
+This means your key was created. Two files were saved:
+- `~/.ssh/id_ed25519` — your **private key** (never share this!)
+- `~/.ssh/id_ed25519.pub` — your **public key** (this is the one you'll give to GitHub)
+
+### 3.4 Register your key with your computer (ssh-agent)
+
+The **ssh-agent** is a program that remembers your passphrase so you don't have to type it every time you connect to GitHub.
+
+**On macOS:**
+
+Run these two commands, one at a time:
 
 ```bash
 eval "$(ssh-agent -s)"
+```
+
+This starts the ssh-agent. You should see: `Agent pid XXXXX` (the number will be different).
+
+```bash
 ssh-add --apple-use-keychain ~/.ssh/id_ed25519
 ```
 
-Then create or edit `~/.ssh/config`:
+This adds your key to the agent. It will ask for the passphrase you set in step 3.3. Type it and press Enter. You should see: `Identity added: /Users/you/.ssh/id_ed25519 (your-email@example.com)`
+
+The `--apple-use-keychain` part tells macOS to save your passphrase in your login keychain (the same place your Mac passwords are stored) so you won't be asked again.
+
+**Create the SSH config file** so your computer knows to use this key for GitHub automatically:
+
+```bash
+nano ~/.ssh/config
+```
+
+This opens a simple text editor. Paste in the following (use Cmd+V on Mac or Ctrl+Shift+V in most terminals):
 
 ```
 Host github.com
@@ -175,14 +334,18 @@ Host github.com
   IdentityFile ~/.ssh/id_ed25519
 ```
 
-**Windows (WSL):**
+Press **Ctrl+X** to exit, then press **Y** to confirm saving, then press **Enter** to keep the same filename.
+
+(If you prefer a visual editor, you can use `open -a TextEdit ~/.ssh/config` instead of `nano`.)
+
+**On Windows (WSL):**
 
 ```bash
 eval "$(ssh-agent -s)"
 ssh-add ~/.ssh/id_ed25519
 ```
 
-**Windows (native PowerShell):**
+**On Windows (native PowerShell):**
 
 ```powershell
 Get-Service ssh-agent | Set-Service -StartupType Automatic
@@ -190,43 +353,89 @@ Start-Service ssh-agent
 ssh-add $env:USERPROFILE\.ssh\id_ed25519
 ```
 
-### 3.5 Add the public key to GitHub
+### 3.5 Add your public key to GitHub
 
-Copy your public key to clipboard:
+Now you need to give GitHub your "lock" (the public key). 
+
+**Step 1 — Copy your public key**
+
+In your terminal, run:
 
 ```bash
-# macOS
+# On macOS:
 pbcopy < ~/.ssh/id_ed25519.pub
 
-# WSL / Linux
-cat ~/.ssh/id_ed25519.pub   # then copy by hand
+# On WSL / Linux:
+cat ~/.ssh/id_ed25519.pub   # then select and copy the output by hand
 
-# Windows PowerShell
+# On Windows PowerShell:
 Get-Content $env:USERPROFILE\.ssh\id_ed25519.pub | clip
 ```
 
-On GitHub: **Settings → SSH and GPG keys → New SSH key**. Title it something like `laptop-mac-2026`, paste the key, save.
+(If you're on macOS and `pbcopy` doesn't work, run `cat ~/.ssh/id_ed25519.pub`, select the output with your mouse, and copy it manually.)
+
+**Step 2 — Go to GitHub SSH settings**
+
+Open your web browser and go to [github.com/settings/keys](https://github.com/settings/keys).
+
+Or navigate there manually:
+1. Click your profile picture (top-right corner of GitHub).
+2. Click **Settings**.
+3. In the left sidebar, click **SSH and GPG keys**.
+
+**Step 3 — Add the key**
+
+1. Click the green **New SSH key** button (top-right).
+2. **Title:** Enter a label to remember which computer this key is for — e.g. `laptop-mac-2026` or `office-windows`.
+3. **Key type:** Leave as "Authentication Key" (the default).
+4. **Key:** Click inside the big text box and press **Cmd+V** (Mac) or **Ctrl+V** (Windows) to paste your public key. It should look like a long string starting with `ssh-ed25519 AAA...`.
+5. Click **Add SSH key**.
+
+GitHub will ask you to confirm your password. Enter it and click **Confirm**.
 
 ### 3.6 Test the connection
+
+Let's make sure everything is wired up correctly. In your terminal:
 
 ```bash
 ssh -T git@github.com
 ```
 
-You should see:
+**If everything is set up correctly**, you'll see:
 
-> Hi `your-username`! You've successfully authenticated, but GitHub does not provide shell access.
+```
+Hi your-username! You've successfully authenticated, but GitHub does not provide shell access.
+```
 
-That message is the success case. If you see a permission error, your key wasn't added to the agent or wasn't pasted into GitHub correctly.
+This message is **the success message** — it means GitHub knows who you are and your SSH key is working. The "does not provide shell access" part is normal; GitHub only lets you interact with repos, not log in as a user.
 
-### 3.7 Clone a private repo
+**If something is wrong**, you might see:
 
-Use the **SSH** URL (`git@github.com:Org/repo.git`), not HTTPS:
+```
+git@github.com: Permission denied (publickey).
+```
+
+This usually means:
+- Your key wasn't added to the ssh-agent (go back to section 3.4)
+- You didn't paste the key correctly in GitHub's settings (go back to section 3.5)
+- You need to wait a moment and try again
+
+### 3.7 Clone a private repo (download the team's code)
+
+Now that everything is set up, you can download (clone) the team's repos.
+
+**Important:** Always use the **SSH** URL (starts with `git@github.com:`) — not the HTTPS URL (starts with `https://github.com/`). SSH URLs work with the key you just set up; HTTPS URLs will ask you for a password every time.
+
+To clone this repo (the one containing this onboarding guide):
 
 ```bash
-git clone git@github.com:RethinkLedgers/<repo-name>.git
-cd <repo-name>
+git clone git@github.com:RethinkLedgers/interns.git
+cd interns
 ```
+
+The `git clone` command downloads the repo. The `cd interns` command moves you into that folder.
+
+When it finishes, you'll see the repo's files on your computer. You're all set.
 
 ---
 
