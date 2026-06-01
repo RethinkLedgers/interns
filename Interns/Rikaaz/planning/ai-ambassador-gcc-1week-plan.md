@@ -3,8 +3,9 @@
 > Example planning doc. The **AI Ambassador** is msg2ai's **Events assistant**: a WhatsApp/SMS AI concierge for event organizers that handles attendee onboarding, agenda, meeting requests, and QR check-in. See [`products/ai_ambassador/ai_ambassador_product_guideline.md`](../../../products/ai_ambassador/ai_ambassador_product_guideline.md).
 
 **Region:** Qatar · Oman · Dubai · Abu Dhabi · KSA (GCC)
+**Vertical focus:** **Sports Events** — Soccer/Football, Formula 1, Tennis, UFC/MMA, Equestrian, Polo, golf, padel, motorsport, and the federations, leagues, promoters, and venues behind them.
 **Goal:** Customer Discovery → Market Analysis → Customer Outreach (email + organized campaigns)
-**Objectives:** drive **initial calls**, **signups**, and **sales growth**
+**Objectives:** drive **initial calls**, **signups**, and **sales growth** with GCC sports-event organizers
 
 ## Weekly targets (KPIs to hit by Friday)
 
@@ -26,7 +27,6 @@
 - **Twenty CRM** (`rethink-labs.twenty.com`) — log every account, contact, and call.
 - **Zoho** — send sequenced outreach in small, personalized batches.
 - **Obsidian wiki** — write up market-analysis notes.
-- **
 
 > Ground rules: work from the **msg2ai email**, keep all testing on **Test**, never put API keys or contact lists in a tracked Git file, and never email at scale from Prod.
 
@@ -38,25 +38,25 @@
 
 - Run Exercises 1–5 from the product guideline on **Test** (send a DM, build a Concierge assistant, import an audience, run a 5-min-delayed broadcast, read Message Logs).
 - Focus on the **Events** assistant type + **Check-in** + **Meeting Requests** — these are the AI Ambassador story.
-- Draft the **Ideal Customer Profile (ICP):** exhibition organizers, PCOs/conference organizers, DMCs, large venues (Dubai World Trade Centre, ADNEC, DECC Doha, Oman Convention & Exhibition Centre, RICEC Riyadh, Jeddah Superdome), expo/government-event teams, large wedding/MICE planners.
-- Write a one-paragraph **value proposition** tailored to GCC (WhatsApp-first, Arabic + English, automated attendee onboarding & check-in, sponsor/speaker meeting booking).
+- Draft the **Ideal Customer Profile (ICP)** for **sports events:** sports event promoters/organizers, national & regional sports federations (football, equestrian, motorsport, tennis, golf), league & club commercial teams, stadium/arena & circuit operators (Lusail & Education City stadiums, Yas Marina Circuit, Jeddah Corniche Circuit, Dubai Duty Free Tennis Stadium, equestrian & polo clubs), and sports marketing/hospitality agencies running fan experiences.
+- Write a one-paragraph **value proposition** tailored to GCC sports events (WhatsApp-first fan onboarding, Arabic + English, ticket-holder Q&A, gate/QR check-in, VIP & sponsor meeting booking, match-day broadcasts).
 
-## Day 2 — Market analysis (GCC events landscape)
+## Day 2 — Market analysis (GCC sports-events landscape)
 
 *Outcome: a short market brief that informs targeting and the pitch.*
 
-- Map the events calendar per country: major expos, conferences, government summits, and the season's big events in Qatar, Oman, Dubai, Abu Dhabi, KSA.
-- Identify the **top 8–12 venues** and **top 15–20 organizers/PCOs/DMCs** per priority market (lead with UAE + KSA — largest volume).
-- Note the buying context: WhatsApp dominance in the region, Arabic-language need, peak event seasons (Oct–Apr), and Vision-2030/Expo-driven event growth in KSA.
-- Deliverable: **1–2 page market brief** in the Obsidian wiki (segments, top accounts, key hooks, objections).
+- Map the **sports calendar** per country: F1 (Bahrain, Jeddah, Abu Dhabi/Yas Marina, Qatar/Lusail), football (Saudi Pro League, Qatar Stars League, AFC fixtures, friendlies), tennis (Dubai, Doha, Abu Dhabi exhibitions), UFC/MMA fight nights (Abu Dhabi), equestrian & polo (Dubai, Doha, Riyadh), golf (DP World Tour — Dubai, Abu Dhabi), and growing padel/esports events.
+- Identify the **top 8–12 venues/circuits** and **top 15–20 organizers/federations/promoters** per priority market (lead with KSA + UAE + Qatar — the biggest sports-investment markets).
+- Note the buying context: WhatsApp dominance for fan comms, Arabic + English need, large match-day/event-day attendee surges, sponsorship/VIP hospitality emphasis, and Vision-2030 / PIF-driven sports growth in KSA.
+- Deliverable: **1–2 page market brief** in the Obsidian wiki (sports segments, top accounts, key hooks, objections).
 
 ## Day 3 — Customer discovery (build the target list)
 
 *Outcome: 60–80 qualified accounts and 120+ contacts in the CRM.*
 
-- Use **Apollo** to pull event organizers / venues / DMCs in the 5 markets; filter by title (Marketing Director, Events Director, Operations, Founder/MD).
-- Qualify each account against the ICP (do they run multi-day or high-attendee events where messaging/check-in matters?).
-- Enrich and import into **Twenty CRM** — one Company record per org, Contacts linked, tagged by country + segment.
+- Use **Apollo** to pull sports federations / leagues / clubs / promoters / venue & circuit operators / sports-hospitality agencies in the 5 markets; filter by title (Marketing Director, Fan Experience, Commercial/Partnerships, Events/Operations, Founder/MD).
+- Qualify each account against the ICP (do they run high-attendance match-days or event-days where fan messaging/gate check-in matters?).
+- Enrich and import into **Twenty CRM** — one Company record per org, Contacts linked, tagged by country + sport.
 - For the **top 15 accounts**, find a specific recent or upcoming event to reference in outreach (personalization hook).
 
 ## Day 4 — Outreach prep (sequences, templates, CRM hygiene)
@@ -64,7 +64,7 @@
 *Outcome: a ready-to-send campaign, fully personalized at the top of funnel.*
 
 - Write a **3-touch email sequence** (initial → value/case follow-up → break-up), each ≤120 words, with one clear CTA: *book a 15-min call / see a live demo*.
-- Build **2–3 segment variants** (venues vs. organizers vs. DMCs) and an Arabic subject-line option.
+- Build **2–3 segment variants** (federations/leagues vs. venue/circuit operators vs. sports-hospitality agencies) and an Arabic subject-line option.
 - Prepare a **demo asset**: a short Loom/screenshare of the Events assistant from Test, or a live test number they can text.
 - Set up CRM stages (Prospect → Contacted → Replied → Call Booked → Signup) and a daily follow-up view. Confirm deliverability basics (send from the msg2ai email, small batches, no spammy links).
 
