@@ -4,15 +4,14 @@ Welcome. This guide walks you through everything you need to be productive on da
 
 1. Install **opencode** (terminal AI coding agent) on macOS or Windows
 2. Pick a **free model** so you don't need a paid API key
-3. Try **Cursor** — a graphical AI editor — if you'd rather not live in the terminal
-4. Set up **GitHub + SSH** so you can clone, pull, and push private repos
-5. Sync work between your laptop and GitHub, and the commands to give opencode
-6. Set up **Tailscale** for secure access to the team's internal tools
-7. Connect **MCP servers** to opencode — including **Composio** for managed app authentication
-8. Create or find **skills (agents)** for opencode
-9. Get oriented on **Paperclip** and how to use opencode as its underlying LLM
-10. Use the **shared Obsidian wiki** as the team's knowledge base
-11. Work in **Twenty CRM** at `rethink-labs.twenty.com` and wire it into opencode
+3. Set up **GitHub + SSH** so you can clone, pull, and push private repos
+4. Sync work between your laptop and GitHub, and the commands to give opencode
+5. Connect **MCP servers** to opencode — including **Composio** for managed app authentication
+6. Create or find **skills (agents)** for opencode
+7. Get oriented on **Paperclip** and how to use opencode as its underlying LLM
+8. Use the **shared Obsidian wiki** as the team's knowledge base
+9. Work in **Twenty CRM** at `rethink-labs.twenty.com` and wire it into opencode
+10. Join **Happenstance + Rethink Labs** with your msg2ai email
 
 > If anything in this doc is wrong or stale, fix it in the repo and open a PR. Don't suffer in silence.
 
@@ -40,27 +39,7 @@ This is a **Markdown** file (`.md`). To view it with proper formatting (bold tex
 
 Once you have one, open this file in that app to see headings, bullet points, code blocks, and links rendered cleanly.
 
----
-
-## 1. Join Happenstance + Rethink Labs
-
-**What is Happenstance?** [Happenstance](https://happenstance.ai) is an AI-powered networking platform the team uses to stay connected. Joining the Rethink Labs group on Happenstance is how you'll receive invitations to team events, see who else is in the org, and tap into the network.
-
-**Step 1 — Sign up**
-
-Go to [happenstance.ai](https://happenstance.ai) and create an account. **You must sign up with your msg2ai email** (the work email your manager gave you) — that's how the system knows you belong to Rethink Labs and automatically sends you the group invitation.
-
-**Step 2 — Accept the group invite**
-
-Once you've signed up, ask your manager to send you the Rethink Labs group invitation, or check your msg2ai inbox for an auto-invite. Follow the link to join.
-
-**Step 3 — Set up your profile**
-
-Add your name, role (e.g. "Intern"), and a photo so the team can recognize you.
-
----
-
-## 2. Install opencode
+## 1. Install opencode
 
 **What is opencode?** opencode is an AI coding assistant that runs in your terminal (the black window where you type commands). You type or say what you want to build, and it writes code, runs commands, and edits files for you.
 
@@ -1008,19 +987,21 @@ Default to the native MCP for CRM-heavy tasks and reach for Composio when you're
 
 ---
 
-## Intro videos
+## 10. Join Happenstance + Rethink Labs
 
-New to any of these tools? These short YouTube intros are a quick way in. They're external links — skim them for the gist, but the setup steps above are what's authoritative for our team. Found a better one? Swap the link and open a PR.
+**What is Happenstance?** [Happenstance](https://happenstance.ai) is an AI-powered networking platform the team uses to stay connected. Joining the Rethink Labs group on Happenstance is how you'll receive invitations to team events, see who else is in the org, and tap into the network.
 
-| Tool | Watch / read |
-|---|---|
-| opencode | [OpenCode Tutorial for Beginners: Setup, Agents, Skills & MCP](https://www.youtube.com/watch?v=uZGDO0L-Dr4) |
-| Cursor | [Cursor Tutorial for Beginners (AI Code Editor)](https://www.youtube.com/watch?v=ocMOZpuAMw4) |
-| Tailscale | [How to get started with Tailscale in under 10 minutes](https://www.youtube.com/watch?v=sPdvyR7bLqI) |
-| Twenty CRM | [Twenty — the #1 open-source CRM (overview)](https://www.youtube.com/watch?v=65sOHce1gjw) |
-| Obsidian | [The Ultimate Obsidian Beginner's Guide](https://www.youtube.com/watch?v=gafuqdKwD_U) |
-| Composio | [The complete guide to building MCP agents](https://composio.dev/blog/the-complete-guide-to-building-mcp-agents/) *(written guide — no solid beginner video yet)* |
-| Paperclip | No good intro video yet — start with the [Paperclip homepage](https://paperclip.ing) and Section 9 above. |
+**Step 1 — Sign up**
+
+Go to [happenstance.ai](https://happenstance.ai) and create an account. **You must sign up with your msg2ai email** (the work email your manager gave you) — that's how the system knows you belong to Rethink Labs and automatically sends you the group invitation.
+
+**Step 2 — Accept the group invite**
+
+Once you've signed up, ask your manager to send you the Rethink Labs group invitation, or check your msg2ai inbox for an auto-invite. Follow the link to join.
+
+**Step 3 — Set up your profile**
+
+Add your name, role (e.g. "Intern"), and a photo so the team can recognize you.
 
 ---
 
