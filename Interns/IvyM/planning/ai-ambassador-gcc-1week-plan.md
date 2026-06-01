@@ -2,9 +2,10 @@
 
 > Example planning doc. The **AI Ambassador** is msg2ai's **Events assistant**: a WhatsApp/SMS AI concierge for event organizers that handles attendee onboarding, agenda, meeting requests, and QR check-in. See [`products/ai_ambassador/ai_ambassador_product_guideline.md`](../../../products/ai_ambassador/ai_ambassador_product_guideline.md).
 
-**Region:** Qatar · Oman · Dubai · Abu Dhabi · KSA (GCC)
+**Region:** Philippines (Metro Manila · Cebu · Davao · Clark/Pampanga · Boracay)
+**Vertical focus:** **Event Industry** — event organizers, MICE/PCOs, expo & conference producers, venues, and event-management agencies across the Philippines.
 **Goal:** Customer Discovery → Market Analysis → Customer Outreach (email + organized campaigns)
-**Objectives:** drive **initial calls**, **signups**, and **sales growth**
+**Objectives:** drive **initial calls**, **signups**, and **sales growth** with Philippine event organizers
 
 ## Weekly targets (KPIs to hit by Friday)
 
@@ -27,7 +28,6 @@
 - **Zoho** — send sequenced outreach in small, personalized batches.
 - **Happenstance.ai** — tap the team network for warm intros and to find who can connect you into target accounts.
 - **Obsidian wiki** — write up market-analysis notes.
-- **
 
 > Ground rules: work from the **msg2ai email**, keep all testing on **Test**, never put API keys or contact lists in a tracked Git file, and never email at scale from Prod.
 
@@ -39,25 +39,25 @@
 
 - Run Exercises 1–5 from the product guideline on **Test** (send a DM, build a Concierge assistant, import an audience, run a 5-min-delayed broadcast, read Message Logs).
 - Focus on the **Events** assistant type + **Check-in** + **Meeting Requests** — these are the AI Ambassador story.
-- Draft the **Ideal Customer Profile (ICP):** exhibition organizers, PCOs/conference organizers, DMCs, large venues (Dubai World Trade Centre, ADNEC, DECC Doha, Oman Convention & Exhibition Centre, RICEC Riyadh, Jeddah Superdome), expo/government-event teams, large wedding/MICE planners.
-- Write a one-paragraph **value proposition** tailored to GCC (WhatsApp-first, Arabic + English, automated attendee onboarding & check-in, sponsor/speaker meeting booking).
+- Draft the **Ideal Customer Profile (ICP):** event-management & MICE agencies, PCOs/conference organizers, expo & trade-show producers, large venues (SMX Convention Center, World Trade Center Metro Manila, PICC, Marriott Grand Ballroom, Cebu venues), corporate-events teams, and large wedding/social-events planners.
+- Write a one-paragraph **value proposition** tailored to the Philippines (Messenger/WhatsApp/SMS-first, English + Filipino, automated attendee onboarding & QR check-in, sponsor/speaker meeting booking).
 
-## Day 2 — Market analysis (GCC events landscape)
+## Day 2 — Market analysis (Philippine events landscape)
 
 *Outcome: a short market brief that informs targeting and the pitch.*
 
-- Map the events calendar per country: major expos, conferences, government summits, and the season's big events in Qatar, Oman, Dubai, Abu Dhabi, KSA.
-- Identify the **top 8–12 venues** and **top 15–20 organizers/PCOs/DMCs** per priority market (lead with UAE + KSA — largest volume).
-- Note the buying context: WhatsApp dominance in the region, Arabic-language need, peak event seasons (Oct–Apr), and Vision-2030/Expo-driven event growth in KSA.
+- Map the events calendar by city: major expos, conferences, corporate summits, and big trade shows in Metro Manila, Cebu, Davao, and Clark.
+- Identify the **top 8–12 venues** and **top 15–20 organizers/PCOs/agencies** per priority hub (lead with Metro Manila + Cebu — largest volume).
+- Note the buying context: Facebook Messenger & SMS dominance for consumer comms (WhatsApp/Viber also used), English + Filipino, a fast-growing MICE/tourism push (DOT/TPB), and price sensitivity vs. global tools.
 - Deliverable: **1–2 page market brief** in the Obsidian wiki (segments, top accounts, key hooks, objections).
 
 ## Day 3 — Customer discovery (build the target list)
 
 *Outcome: 60–80 qualified accounts and 120+ contacts in the CRM.*
 
-- Use **Apollo** to pull event organizers / venues / DMCs in the 5 markets; filter by title (Marketing Director, Events Director, Operations, Founder/MD).
+- Use **Apollo** to pull event organizers / MICE agencies / venues in the target cities; filter by title (Marketing Director, Events Director, Operations, Founder/MD).
 - Qualify each account against the ICP (do they run multi-day or high-attendee events where messaging/check-in matters?).
-- Enrich and import into **Twenty CRM** — one Company record per org, Contacts linked, tagged by country + segment.
+- Enrich and import into **Twenty CRM** — one Company record per org, Contacts linked, tagged by city + segment.
 - For the **top 15 accounts**, find a specific recent or upcoming event to reference in outreach (personalization hook).
 
 ## Day 4 — Outreach prep (sequences, templates, CRM hygiene)
@@ -65,7 +65,7 @@
 *Outcome: a ready-to-send campaign, fully personalized at the top of funnel.*
 
 - Write a **3-touch email sequence** (initial → value/case follow-up → break-up), each ≤120 words, with one clear CTA: *book a 15-min call / see a live demo*.
-- Build **2–3 segment variants** (venues vs. organizers vs. DMCs) and an Arabic subject-line option.
+- Build **2–3 segment variants** (venues vs. MICE/PCO organizers vs. corporate-events teams) and a Filipino subject-line option.
 - Prepare a **demo asset**: a short Loom/screenshare of the Events assistant from Test, or a live test number they can text.
 - Set up CRM stages (Prospect → Contacted → Replied → Call Booked → Signup) and a daily follow-up view. Confirm deliverability basics (send from the msg2ai email, small batches, no spammy links).
 
