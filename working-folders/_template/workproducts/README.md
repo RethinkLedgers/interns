@@ -12,7 +12,7 @@ Anything you build during your internship that's small enough to live alongside 
 
 ## What does NOT go here
 
-- **Large or active projects** — anything with more than ~20 files, CI/CD, tests, or external contributors. Spin up a dedicated repo: `<project>-<your-name>` under [RethinkLedgers](https://github.com/RethinkLedgers), private, and link it from your top-level `README.md`.
+- **Large or active projects** — anything with more than ~20 files, CI/CD, tests, or external contributors. Spin up a dedicated repo: `<project>-<your-name>` under [Rethink-Labs](https://github.com/RethinkLedgers), private, and link it from your top-level `README.md`.
 - **Secrets** — API keys, customer data, anything sensitive. The repo is private but mistakes happen and history is hard to scrub. Use 1Password.
 - **Generated artifacts** — build outputs, binaries, dependency directories (`node_modules/`, `.venv/`, etc.). Add patterns to the root `.gitignore` if they show up.
 - **Anything > ~10 MB per file** — GitHub will warn you, and large files in a git repo are painful forever. Use a shared drive or S3 bucket if you have approved access.

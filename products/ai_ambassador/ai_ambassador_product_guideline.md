@@ -25,9 +25,9 @@ msg2ai runs in three separate environments. **Always know which one you're in** 
 
 | Environment | URL                                            | What it's for                                                                                     |
 | ----------- | ---------------------------------------------- | ------------------------------------------------------------------------------------------------- |
-| **Dev**     | [dev.ai-ambassador.xyz](https://dev.ai-ambassador.xyz) | Internal development. Features land here first. Things may be broken — that's expected.           |
+| **Dev**     | [dev.ai-ambassador.xyz](https://dev.msg2ai.xyz) | Internal development. Features land here first. Things may be broken — that's expected.           |
 | **Test**    | [test.msg2ai.xyz](https://test.msg2ai.xyz)             | Stable test playground. Use this for QA, demos to teammates, and learning the product safely.     |
-| **Prod**    | [app.msg2ai.com](https://app.msg2ai.com)               | Real customers. Real money. Real messages going to real phones. **Do not test things here.**      |
+| **Prod**    | [app.msg2ai.com](https://hello.msg2ai.xyz)               | Real customers. Real money. Real messages going to real phones. **Do not test things here.**      |
 
 ### Golden rules
 
@@ -168,8 +168,8 @@ Follow these exercises on **Test** ([test.msg2ai.xyz](https://test.msg2ai.xyz)) 
 | Need to…                      | Go to…                                  |
 | ----------------------------- | --------------------------------------- |
 | Learn the product safely      | [test.msg2ai.xyz](https://test.msg2ai.xyz)         |
-| See newest features (may break) | [dev.ai-ambassador.xyz](https://dev.ai-ambassador.xyz) |
-| **Never click around casually** | [app.msg2ai.com](https://app.msg2ai.com) (Prod)  |
+| See newest features (may break) | [dev.msg2ai.xyz](https://dev.msg2ai.xyz) |
+| **Never click around casually** | [hello.msg2ai.com](https://app.msg2ai.com) (Prod)  |
 | See message volume            | Dashboard                               |
 | Read conversations            | Message Logs                            |
 | Send a one-off message        | Direct Messages                         |
