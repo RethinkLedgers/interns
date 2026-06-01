@@ -1,4 +1,4 @@
-# RethinkLedgers — Intern Onboarding
+# Rethink-Labs — Intern Onboarding
 
 Welcome. This guide walks you through everything you need to be productive on day one:
 
@@ -119,7 +119,7 @@ In any project folder, type:
 opencode
 ```
 
-The first time you run this, opencode will say something like "No API provider configured" and ask you to pick one. **Do not pick anything yet** — go to section 2 first to set up a free model. When you come back, you'll use the `/connect` command to add the provider.
+The first time you run this, opencode may ask you to pick a model. Go to section 2 — you'll use the `/model` command to select the free DeepSeek V4 model.
 
 ---
 
@@ -127,86 +127,61 @@ The first time you run this, opencode will say something like "No API provider c
 
 **What is a "model"?** Think of a model as the AI brain that powers opencode. Different models have different strengths — some are better at coding, some are faster, some are free.
 
-**What is an "API key"?** A secret code that proves you're allowed to use a particular model provider. You get it from the provider's website and paste it into opencode.
+**Which one should you pick?** Start with **DeepSeek V4** — it's free, excellent at coding, and **available directly in opencode** (no provider account or API key to set up).
 
-**Which one should you pick?** Start with **DeepSeek V4 via OpenRouter** — it's free and excellent at coding.
+### Select DeepSeek V4
 
-### Recommended: DeepSeek V4 through OpenRouter
-
-**Step 1 — Create an OpenRouter account**
-
-Go to [openrouter.ai](https://openrouter.ai) in your web browser.
-
-Click the **Sign Up** or **Get Started** button. You can sign up with your Google account (click the Google button) or with any email address. Use your **msg2ai email** (the one your manager gave you for work).
-
-Once you're signed in, you'll land on the OpenRouter dashboard.
-
-**Step 2 — Create an API key**
-
-On the left sidebar, click **Keys** (or go to [openrouter.ai/keys](https://openrouter.ai/keys)).
-
-Click the **Create Key** button. A popup will appear showing a long string of random letters and numbers — **this is your API key**. Copy it to your clipboard (click the copy icon or select it and press Cmd+C on Mac / Ctrl+C on Windows).
-
-⚠️ **Important:** This is the only time you'll see this key. If you lose it, you'll need to create a new one.
-
-**Step 3 — Add the key to opencode**
-
-In your terminal (where opencode is running or where you're about to run it), opencode uses a command called `/connect` to add API providers.
-
-If you already ran `opencode` and it prompted you to pick a provider:
-- You'll see a list of providers. Type `OpenRouter` (or scroll to it with arrow keys) and press Enter.
-- It will ask for your API key. Paste it (Cmd+V on Mac, Ctrl+V on Windows — or right-click → Paste in some terminals).
-- Press Enter.
-
-If you haven't run opencode yet:
-- Run `opencode` from your terminal.
-- When asked to pick a provider, choose **OpenRouter** and paste your key.
-
-**Step 4 — Select the DeepSeek V4 model**
-
-After pasting your API key, opencode will show a list of available models. Look for one called **DeepSeek V4** — it may appear as something like `deepseek/deepseek-v4` or `deepseek/deepseek-chat-v4:free`.
-
-Use the arrow keys to scroll to it and press Enter.
-
-If you don't see DeepSeek V4 in the list:
-1. Type `/model` and press Enter
-2. Search for "deepseek v4" or "deepseek/deepseek"
-3. Select the one with `:free` at the end if available
-
-**That's it.** You now have a free AI coding assistant running on DeepSeek V4.
-
-### Alternative: Google Gemini (also free, huge daily quota)
-
-If OpenRouter isn't working for you or you want a backup:
-
-1. Go to [aistudio.google.com](https://aistudio.google.com).
-2. Sign in with your Google account (use your msg2ai email).
-3. Click **Get API key** → **Create API key**.
-4. Copy the key that appears.
-5. In opencode, type `/connect`, choose **Google Gemini**, paste the key.
-6. When asked to pick a model, choose `gemini-2.5-pro`.
-
-### Switching models later
-
-Want to try a different model later? Inside opencode, type:
+Inside opencode, type:
 
 ```
 /model
 ```
 
-This shows the model list again — pick a new one anytime. You can add multiple providers by running `/connect` again.
+This opens the model list. Search for **DeepSeek V4**, then press Enter.
 
-Need to check which provider and model you're currently using? Type `/model` and it will show your current selection.
+**That's it.** You now have a free AI coding assistant running on DeepSeek V4.
+
+> Want to switch models later? Type `/model` again any time — it shows the list and your current selection.
 
 ---
 
-## 3. Set up GitHub and SSH
+## 3. Cursor — a friendly GUI alternative to opencode
+
+opencode runs in your terminal. **Cursor** does the same job — an AI coding assistant — but as a full graphical app built on top of VS Code. If a terminal feels intimidating, Cursor is the gentler on-ramp; plenty of people use **both** (Cursor to read and edit code visually, opencode for scripted or headless agent runs).
+
+**You don't have to choose right now.** Both tools open the same files in the same git repo, so switching between them costs nothing. Install Cursor if you want a visual editor; stay in opencode if the terminal already feels comfortable.
+
+### Install Cursor
+
+- **macOS:** `brew install --cask cursor` (or download from [cursor.com](https://cursor.com))
+- **Windows / Linux:** download the installer from [cursor.com](https://cursor.com)
+
+Open it, sign in (a free account is fine for the internship), then **File → Open Folder** and point it at a repo you've cloned.
+
+### Stay on a free model
+
+Cursor's built-in AI has a limited free tier. To keep things free, plug in the same provider key you set up in Section 2:
+
+1. **Cursor → Settings → Models** (`Cmd/Ctrl + Shift + J`).
+2. Add an API key for a provider with a free tier — **OpenRouter** is easiest. Paste the key, then enable a model with `:free` in its name.
+3. Set that model as your default.
+
+### The two commands you'll use most
+
+- **Inline edit — `Cmd/Ctrl + K`:** select some code, describe the change in plain English, then accept or reject the diff it proposes.
+- **Chat / Composer — `Cmd/Ctrl + L`:** ask questions about the codebase, or have it make changes across several files with the whole repo as context.
+
+> **Same git rules apply.** Whether you edit in Cursor or opencode, you still branch, commit, and open a PR exactly as in Section 5 — and you still never push straight to `main`.
+
+---
+
+## 4. Set up GitHub and SSH
 
 **What is GitHub?** GitHub is a website that stores and manages code. Think of it as Google Drive for code — your team's code lives there, and you download it to your laptop to work on it, then upload your changes back.
 
 **Why SSH?** Normally every time you download or upload code, GitHub would ask for your username and password. SSH keys skip that — you set it up once and it just works. You'll generate a pair of keys: a **private key** (like a key, stays on your laptop) and a **public key** (like a lock, you give it to GitHub).
 
-### 3.1 Create a GitHub account (if you don't have one)
+### 4.1 Create a GitHub account (if you don't have one)
 
 If you already have a GitHub account, you can skip to step 3.
 
@@ -228,7 +203,7 @@ GitHub will send a confirmation code to your msg2ai email. Open your email inbox
 
 **Step 3 — Turn on two-factor authentication (2FA)**
 
-**What is 2FA?** An extra layer of security. Even if someone guesses your password, they can't log in without a code from your phone. The RethinkLedgers organization requires this.
+**What is 2FA?** An extra layer of security. Even if someone guesses your password, they can't log in without a code from your phone. The Rethink-Labs organization requires this.
 
 1. In GitHub, click your profile picture (top-right corner) → **Settings**.
 2. In the left sidebar, click **Password and authentication**.
@@ -244,9 +219,9 @@ GitHub will send a confirmation code to your msg2ai email. Open your email inbox
 
 Look at the top-left corner of any GitHub page. You'll see a dropdown that says something like "Personal account" and below it your username (e.g. `ariannacant`).
 
-Send an email to your manager with your GitHub username so they can invite you to the **RethinkLedgers** organization. You won't be able to see any of the team's repos until they do this.
+Send an email to your manager with your GitHub username so they can invite you to the **Rethink-Labs** organization. You won't be able to see any of the team's repos until they do this.
 
-### 3.2 Install git (if needed)
+### 4.2 Install git (if needed)
 
 **What is git?** The program that downloads and uploads code between your laptop and GitHub.
 
@@ -273,7 +248,7 @@ git config --global user.email "your-msg2ai-email@example.com"
 
 Replace `"Your Full Name"` with your actual name (e.g. `"Arianna Cant"`) and the email with your actual msg2ai email.
 
-### 3.3 Generate an SSH key
+### 4.3 Generate an SSH key
 
 Think of this as creating a key and a lock. The **private key** (the actual key) stays on your laptop. The **public key** (the lock) goes to GitHub.
 
@@ -322,7 +297,7 @@ This means your key was created. Two files were saved:
 - `~/.ssh/id_ed25519` — your **private key** (never share this!)
 - `~/.ssh/id_ed25519.pub` — your **public key** (this is the one you'll give to GitHub)
 
-### 3.4 Register your key with your computer (ssh-agent)
+### 4.4 Register your key with your computer (ssh-agent)
 
 The **ssh-agent** is a program that remembers your passphrase so you don't have to type it every time you connect to GitHub.
 
@@ -378,7 +353,7 @@ Start-Service ssh-agent
 ssh-add $env:USERPROFILE\.ssh\id_ed25519
 ```
 
-### 3.5 Add your public key to GitHub
+### 4.5 Add your public key to GitHub
 
 Now you need to give GitHub your "lock" (the public key). 
 
@@ -418,7 +393,7 @@ Or navigate there manually:
 
 GitHub will ask you to confirm your password. Enter it and click **Confirm**.
 
-### 3.6 Test the connection
+### 4.6 Test the connection
 
 Let's make sure everything is wired up correctly. In your terminal:
 
@@ -441,11 +416,11 @@ git@github.com: Permission denied (publickey).
 ```
 
 This usually means:
-- Your key wasn't added to the ssh-agent (go back to section 3.4)
-- You didn't paste the key correctly in GitHub's settings (go back to section 3.5)
+- Your key wasn't added to the ssh-agent (go back to section 4.4)
+- You didn't paste the key correctly in GitHub's settings (go back to section 4.5)
 - You need to wait a moment and try again
 
-### 3.7 Clone a private repo (download the team's code)
+### 4.7 Clone a private repo (download the team's code)
 
 Now that everything is set up, you can download (clone) the team's repos.
 
@@ -464,7 +439,7 @@ When it finishes, you'll see the repo's files on your computer. You're all set.
 
 ---
 
-## 4. Syncing local ↔ GitHub (and telling opencode)
+## 5. Syncing local ↔ GitHub (and telling opencode)
 
 ### Daily git workflow
 
@@ -520,7 +495,7 @@ git commit -m "Add working folder for <your-firstname>"
 git push -u origin <your-firstname>/setup
 ```
 
-(Use a branch and PR — don't push straight to `main`. See Section 4 above.)
+(Use a branch and PR — don't push straight to `main`. See Section 5 above.)
 
 The template includes:
 
@@ -532,7 +507,44 @@ See [`working-folders/README.md`](./working-folders/README.md) in this repo for 
 
 ---
 
-## 5. Connect MCP servers to opencode
+## 6. Tailscale — secure access to internal tools
+
+Some things you'll use aren't on the public internet: a self-hosted **Paperclip** server, an internal dashboard, or a teammate's dev machine. **Tailscale** is how you reach them safely. It builds a small private network — a "tailnet" — that connects your laptop directly to the team's machines through an encrypted [WireGuard](https://www.wireguard.com/) tunnel, without exposing anything publicly.
+
+Think of it as a zero-config VPN: you log in once with the same identity everyone else uses, and the machines you're allowed to see simply appear, reachable by name.
+
+> **You may not need this on day one.** Set it up when your manager points you at an internal service (most often the team's Paperclip instance — Section 9). If everything you touch is public (GitHub, Twenty Cloud, model providers), skip this for now and come back later.
+
+### Install and join the tailnet
+
+1. **Install Tailscale:**
+   - **macOS:** `brew install --cask tailscale` (or the Mac App Store / [tailscale.com/download](https://tailscale.com/download))
+   - **Windows:** `winget install Tailscale.Tailscale` (or the installer from [tailscale.com/download](https://tailscale.com/download))
+   - **Linux / WSL:** `curl -fsSL https://tailscale.com/install.sh | sh`
+2. **Log in and connect:**
+
+   ```bash
+   tailscale up
+   ```
+
+   This opens a browser to authenticate. **Use the same login method your team uses** (ask your manager whether that's Google, GitHub, or email SSO) so you land in the right tailnet — a personal account won't see the team's machines.
+3. **See what you can reach:**
+
+   ```bash
+   tailscale status
+   ```
+
+   This lists the machines on the tailnet and their names. From there you can `ssh you@<machine-name>` or open `http://<machine-name>:<port>` in your browser as if the machine were local.
+
+> **TODO — fill in:** the team tailnet's login method and the hostname of the Paperclip server (your manager / Arianna own these). Until you're added to the tailnet, internal addresses simply won't resolve.
+
+### Telling opencode and Cursor about it
+
+Neither tool needs special configuration — once you're connected, internal hostnames just work. A prompt like *"fetch `http://paperclip-host:3000/api/health` and tell me whether it's up"* will only succeed after `tailscale up`. If a request to an internal address hangs, the first thing to check is `tailscale status`.
+
+---
+
+## 7. Connect MCP servers to opencode
 
 **MCP (Model Context Protocol)** lets opencode call external tools — GitHub APIs, databases, filesystems, web fetchers, etc. — through a standard interface.
 
@@ -601,7 +613,7 @@ Once a server is enabled, opencode discovers its tools automatically. Reference 
 
 Run `/mcp` inside opencode to list active servers and their tools.
 
-### 5b. Composio — managed authentication for 1,000+ apps
+### 7b. Composio — managed authentication for 1,000+ apps
 
 The hard part of connecting an AI agent to a real app — GitHub, Slack, Linear, Gmail, Notion — is almost never the API call itself. It's **authentication**: OAuth handshakes, storing tokens, refreshing them before they expire, juggling scopes, and keeping each person's credentials separate. Doing that by hand for every app and every intern is a maintenance sinkhole.
 
@@ -659,7 +671,7 @@ opencode will ask Composio's router to find the right Linear tool, call it, and 
 
 #### How Composio supercharges skills
 
-Recall from Section 6 that an opencode skill is a markdown agent with a system prompt and a permission scope. Composio is where you give that skill **superpowers it didn't have on its own**:
+Recall from Section 8 that an opencode skill is a markdown agent with a system prompt and a permission scope. Composio is where you give that skill **superpowers it didn't have on its own**:
 
 | Skill idea | Tools Composio supplies |
 |---|---|
@@ -672,14 +684,14 @@ The skill's system prompt just says *"You have access to Composio's tool router 
 
 #### Mental model — Composio vs. raw MCP
 
-- **Raw MCP server** (Section 5): one server = one set of tools you wire up and authenticate yourself. Right for narrow, local capabilities (filesystem, custom internal APIs) where there's no login to manage.
+- **Raw MCP server** (Section 7): one server = one set of tools you wire up and authenticate yourself. Right for narrow, local capabilities (filesystem, custom internal APIs) where there's no login to manage.
 - **Composio MCP**: one connection = managed authentication plus on-demand access to a catalog of 1,000+ apps. Right for anything that needs a login — Composio owns the OAuth tokens and refreshes them, so opencode never sees a raw credential.
 
 Use both. Local custom MCPs for project-specific glue; Composio for every off-the-shelf app that needs you to log in.
 
 ---
 
-## 6. Create or find skills (agents) for opencode
+## 8. Create or find skills (agents) for opencode
 
 In opencode, "skills" are called **agents** — markdown files with a system prompt and a permission scope. There are two kinds:
 
@@ -730,7 +742,7 @@ Share one back by opening a PR to the opencode repo or to our shared agents repo
 
 ---
 
-## 7. Paperclip + RethinkLedgers
+## 9. Paperclip + Rethink-Labs
 
 ### What Paperclip is
 
@@ -743,9 +755,9 @@ In short:
 - **What it does *not* do:** generate code or run an LLM itself. You **bring your own agent** — opencode, Claude Code, Cursor, a Python script, an HTTP webhook. Anything that can receive a heartbeat.
 - **License:** MIT, self-hosted, no Paperclip account needed.
 
-### Why we're using it for RethinkLedgers
+### Why we're using it for Rethink-Labs
 
-The **RethinkLedgers** organization is the GitHub home for our intern cohort's work building on top of Paperclip. The goal of the internship is to use Paperclip to coordinate a small "company" of AI agents on real tasks, with opencode as the LLM-driving runtime behind each agent.
+The **Rethink-Labs** organization is the GitHub home for our intern cohort's work building on top of Paperclip. The goal of the internship is to use Paperclip to coordinate a small "company" of AI agents on real tasks, with opencode as the LLM-driving runtime behind each agent.
 
 ### Quickstart — run Paperclip locally
 
@@ -790,37 +802,37 @@ cd /path/to/agent/workdir && opencode run "$(cat .paperclip/current-prompt.md)"
 ### Where to go from here
 
 - Skim the [Paperclip homepage](https://paperclip.ing) for the high-level pitch.
-- Read your first issue in the [RethinkLedgers org](https://github.com/RethinkLedgers) once you're added.
+- Read your first issue in the [Rethink-Labs org](https://github.com/RethinkLedgers) once you're added.
 - When you hit something this doc didn't cover, **edit this doc** and open a PR — that's the easiest way to make next month's intern's life better.
 
 ---
 
-## 8. The RethinkLedgers Obsidian wiki
+## 10. The Rethink-Labs Obsidian wiki
 
 Our team's shared knowledge base lives in an **Obsidian vault**. Obsidian is a free, local-first, markdown-based note-taking app — every "note" is just a `.md` file, every "link" is `[[wiki-style]]`, and the whole vault is a regular folder you can put in git. That means our wiki is **the same kind of artifact as our code**: editable in any text editor, version-controlled, and readable by opencode.
 
 > **What lives here:** onboarding context, project briefs, meeting notes, architecture decisions, intern weekly updates, agent prompts that aren't yet codified into opencode skills, and anything else that's prose rather than code. If you're tempted to put it in a Slack message that you'll want to find again in three weeks — put it in the wiki instead.
 
-### 8.1 Install Obsidian
+### 10.1 Install Obsidian
 
 - **macOS:** `brew install --cask obsidian` (or download from [obsidian.md](https://obsidian.md))
 - **Windows:** download the installer from [obsidian.md](https://obsidian.md), or `winget install Obsidian.Obsidian`
 
 It's free for personal use, no account required.
 
-### 8.2 Get the shared vault
+### 10.2 Get the shared vault
 
 The shared wiki is a git repo so we get history, blame, and PR review for free.
 
 ```bash
-git clone git@github.com:RethinkLedgers/<wiki-repo-name>.git ~/Obsidian/RethinkLedgers
+git clone git@github.com:RethinkLedgers/<wiki-repo-name>.git ~/Obsidian/Rethink-Labs
 ```
 
 > **TODO — fill in:** the exact repo name (`<wiki-repo-name>`) is set by your manager during onboarding. If you can't find it, ask in the intern channel.
 
-Then in Obsidian: **Open folder as vault** → pick `~/Obsidian/RethinkLedgers`. Trust the vault when prompted (this lets community plugins run; only do this for vaults you trust, which ours is).
+Then in Obsidian: **Open folder as vault** → pick `~/Obsidian/Rethink-Labs`. Trust the vault when prompted (this lets community plugins run; only do this for vaults you trust, which ours is).
 
-### 8.3 Editing conventions
+### 10.3 Editing conventions
 
 - **Atomic notes.** One concept per file. If a note grows past ~500 lines, split it.
 - **Link liberally.** `[[Note Name]]` to connect things — backlinks are how the wiki gets useful.
@@ -828,12 +840,12 @@ Then in Obsidian: **Open folder as vault** → pick `~/Obsidian/RethinkLedgers`.
 - **Daily notes for ongoing work.** Use the Daily Notes core plugin; one note per day under `daily/YYYY-MM-DD.md`.
 - **Don't paste secrets.** The vault is private but it's still on GitHub. API keys, customer data, anything sensitive — keep it out.
 
-### 8.4 Sync workflow
+### 10.4 Sync workflow
 
-The vault is just a git repo, so it follows the same rules as Section 4:
+The vault is just a git repo, so it follows the same rules as Section 5:
 
 ```bash
-cd ~/Obsidian/RethinkLedgers
+cd ~/Obsidian/Rethink-Labs
 git pull               # before you start editing
 # ...edit in Obsidian...
 git add <files>
@@ -845,7 +857,7 @@ For trivial daily-note updates we let people push straight to `main`. For anythi
 
 > **TODO — fill in:** confirm with your manager which folders require PR review vs. direct push, and whether we use the [Obsidian Git plugin](https://github.com/Vinzent03/obsidian-git) for auto-sync (recommended — it commits and pushes from inside Obsidian on a timer so you never forget).
 
-### 8.5 Let opencode read the wiki
+### 10.5 Let opencode read the wiki
 
 Because the vault is plain markdown, opencode can read it the same way it reads any repo — just `cd` into the vault and ask:
 
@@ -861,7 +873,7 @@ For richer use (full-vault search, backlink awareness, tag queries), wire up an 
       "command": ["npx", "-y", "obsidian-mcp-server"],
       "enabled": true,
       "environment": {
-        "OBSIDIAN_VAULT_PATH": "/Users/you/Obsidian/RethinkLedgers"
+        "OBSIDIAN_VAULT_PATH": "/Users/you/Obsidian/Rethink-Labs"
       }
     }
   }
@@ -874,15 +886,15 @@ With that enabled, opencode can search by tag, follow backlinks, and create new 
 >
 > *"Create a new note `30 - Decisions/2026-05-21 budget-warning-threshold.md` with a summary of the change I just shipped."*
 
-### 8.6 Why a wiki *and* code?
+### 10.6 Why a wiki *and* code?
 
 The split is roughly: **code answers "how does it work,"** the **wiki answers "why did we build it this way."** Decisions, tradeoffs, dead ends, and people-context belong in the wiki. PR descriptions and code comments rot fast; a linked wiki note stays findable.
 
 ---
 
-## 9. CRM — Twenty and `rethink-labs.twenty.com`
+## 11. CRM — Twenty and `rethink-labs.twenty.com`
 
-### 9.1 What Twenty is
+### 11.1 What Twenty is
 
 [Twenty](https://twenty.com) is an open-source CRM — think Salesforce or HubSpot, but MIT-licensed, GraphQL-first, and built for technical teams. It's the #1 open-source CRM on GitHub and the platform we use for tracking people, companies, opportunities, and the work surrounding them.
 
@@ -893,11 +905,11 @@ Why it matters for the internship:
 - **Native MCP server in every Cloud workspace.** This is the part that makes Twenty special for our stack: opencode (and any other MCP-aware agent) can read and write CRM data directly, with workspace-scoped API keys. No glue code required.
 - **Custom objects + no-code workflows.** You can model domain-specific entities (e.g. "Onboarding Cohort," "Compliance Filing") without touching the codebase.
 
-### 9.2 `rethink-labs.twenty.com` — our workspace
+### 11.2 `rethink-labs.twenty.com` — our workspace
 
 `rethink-labs.twenty.com` is the **Rethink Labs Twenty Cloud workspace** — the live CRM instance the team runs day-to-day. It's auth-gated (the page just says "Twenty" until you log in), so you need an account on the workspace before you can see anything.
 
-> **TODO — fill in:** who issues workspace invites (likely your manager or an admin on the RethinkLedgers team), and the SSO/email-domain rules for signing in.
+> **TODO — fill in:** who issues workspace invites (likely your manager or an admin on the Rethink-Labs team), and the SSO/email-domain rules for signing in.
 
 What lives there (typical for a sales/ops CRM):
 
@@ -906,28 +918,28 @@ What lives there (typical for a sales/ops CRM):
 - **Notes & Tasks** — meeting recaps, follow-ups, internal context attached to a record.
 - **Custom objects** — anything Rethink Labs models beyond the defaults. Ask before assuming an object is generic vs. team-specific.
 
-### 9.3 Day-one access checklist
+### 11.3 Day-one access checklist
 
 1. Ask your manager for an invite to `rethink-labs.twenty.com`.
 2. Sign in, take the in-app tour.
 3. **Settings → Members:** confirm your role (Admin vs. Member determines what you can edit and whether you can mint API keys).
-4. **Settings → APIs & Webhooks → Generate API key** — create one named `opencode-<your-name>` with a short expiration (30–90 days). You'll use this in Section 9.5 below.
+4. **Settings → APIs & Webhooks → Generate API key** — create one named `opencode-<your-name>` with a short expiration (30–90 days). You'll use this in Section 11.5 below.
 5. Star a few real records (a customer, a deal) so the Home view is useful from the start.
 
 > **Don't experiment in production.** Twenty has no "test mode." If you want to try a workflow or custom object, ask whether to use the prod workspace with a `[TEST]` prefix on the record name, or whether the team maintains a separate sandbox workspace.
 
-### 9.4 Conventions
+### 11.4 Conventions
 
 - **Don't bulk-edit without asking.** The API supports 50k-record imports — easy to nuke a pipeline by accident. Get a second pair of eyes on anything that touches >10 records.
 - **Notes > Slack messages.** If a piece of context (customer call summary, blocker, decision) belongs to a record, write it as a Note on that record. Future-you will find it; future-you will not find a Slack thread from August.
 - **Use the right object.** Don't put a person's notes on the company record or vice versa. Twenty's join behavior depends on this.
 - **Custom field changes are schema changes.** Adding a field is fine; renaming or deleting one can break integrations. Coordinate with the team before changing custom-object schemas.
 
-### 9.5 Connect Twenty to opencode (the fun part)
+### 11.5 Connect Twenty to opencode (the fun part)
 
 Because every Twenty Cloud workspace ships a native MCP server, you can give opencode CRM superpowers in three lines of config.
 
-1. Generate an API key in Twenty: **Settings → APIs & Webhooks → Generate API key** (Section 9.3 step 4).
+1. Generate an API key in Twenty: **Settings → APIs & Webhooks → Generate API key** (Section 11.3 step 4).
 2. Add this to your `opencode.json` (use the per-project config if the key should only apply to one repo, global config otherwise):
 
    ```json
@@ -958,16 +970,16 @@ Now try prompts like:
 >
 > *"Show me the Company schema — which custom fields exist on it?"*
 
-### 9.6 Composio vs. native Twenty MCP
+### 11.6 Composio vs. native Twenty MCP
 
 Both work, with a useful distinction:
 
 - **Native Twenty MCP** (this section) — direct, low-latency, full schema access including custom objects in our workspace. Best when you want deep CRM work.
-- **Composio's Twenty toolkit** (Section 5b) — useful inside cross-app workflows where the same agent also touches Slack, Linear, etc. Slightly less customized to our schema, but you only authenticate once.
+- **Composio's Twenty toolkit** (Section 7b) — useful inside cross-app workflows where the same agent also touches Slack, Linear, etc. Slightly less customized to our schema, but you only authenticate once.
 
 Default to the native MCP for CRM-heavy tasks and reach for Composio when you're orchestrating across many apps.
 
-### 9.7 Where to learn more
+### 11.7 Where to learn more
 
 - [twenty.com](https://twenty.com) — product home, pricing, feature tour
 - [twentyhq/twenty on GitHub](https://github.com/twentyhq/twenty) — source, issues, roadmap
@@ -999,6 +1011,7 @@ Add your name, role (e.g. "Intern"), and a photo so the team can recognize you.
 |---|---|
 | Install opencode (mac) | `brew install anomalyco/tap/opencode` |
 | Install opencode (win) | `scoop install opencode` |
+| Install Cursor (mac) | `brew install --cask cursor` |
 | Add a model provider | `/connect` inside opencode |
 | Switch model | `/model` inside opencode |
 | List MCP servers | `/mcp` inside opencode |
@@ -1007,11 +1020,13 @@ Add your name, role (e.g. "Intern"), and a photo so the team can recognize you.
 | Authenticate an app via Composio | `composio add <github\|slack\|linear\|...>` |
 | Create an agent | `opencode agent create` |
 | Test SSH to GitHub | `ssh -T git@github.com` |
+| Install Tailscale (mac) | `brew install --cask tailscale` |
+| Join the team tailnet | `tailscale up` |
 | Clone private repo | `git clone git@github.com:RethinkLedgers/<repo>.git` |
 | Start Paperclip locally | `npx paperclipai onboard --yes` |
 | Run opencode headlessly | `opencode run "<prompt>"` |
 | Install Obsidian (mac) | `brew install --cask obsidian` |
 | Install Obsidian (win) | `winget install Obsidian.Obsidian` |
-| Clone the team wiki | `git clone git@github.com:RethinkLedgers/<wiki-repo>.git ~/Obsidian/RethinkLedgers` |
+| Clone the team wiki | `git clone git@github.com:RethinkLedgers/<wiki-repo>.git ~/Obsidian/Rethink-Labs` |
 | Open the CRM | [rethink-labs.twenty.com](https://rethink-labs.twenty.com) |
 | Generate Twenty API key | Twenty → Settings → APIs & Webhooks |

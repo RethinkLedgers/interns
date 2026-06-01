@@ -1,6 +1,6 @@
 # Working folders
 
-Every intern in the **RethinkLedgers** internship gets a personal folder in this directory. It's where you keep:
+Every intern in the **Rethink-Labs** internship gets a personal folder in this directory. It's where you keep:
 
 - **Your profile** — short bio, what project you're on, key links
 - **Weekly progress reports** — one short markdown file per week
