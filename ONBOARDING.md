@@ -14,6 +14,30 @@ Welcome. This guide walks you through everything you need to be productive on da
 
 > If anything in this doc is wrong or stale, fix it in the repo and open a PR. Don't suffer in silence.
 
+### How to use opencode (quick start)
+
+When you run `opencode` in a terminal, it opens an interactive chat. Just type what you want in plain English — for example:
+
+- *"Create a file called hello.py that prints 'Hello World'"*
+- *"Show me the files in this directory"*
+- *"Edit index.html and change the title to 'My Site'"*
+
+Opencode will read your files, write code, run commands, and show you what it's doing. You don't need to learn special commands — just describe the task.
+
+**Tips for beginners:**
+- Be specific: say *which* file and *what* to change
+- If opencode does something you don't expect, type `undo` to revert the last change
+- Type `/help` anytime to see available commands
+- Use `opencode run "your task"` to run it headlessly (non-interactive)
+
+### How to read this document more clearly
+
+This is a **Markdown** file (`.md`). To view it with proper formatting (bold text, clickable links, etc.), download a markdown viewer:
+
+- **Any platform:** Use **VS Code** (right-click → Open with → VS Code), or install a Markdown reader like [MarkText](https://github.com/marktext/marktext), [Obsidian](https://obsidian.md), or [Typora](https://typora.io) — all work on **Mac, Windows, and Linux**
+
+Once you have one, open this file in that app to see headings, bullet points, code blocks, and links rendered cleanly.
+
 ---
 
 ## 1. Install opencode
@@ -21,6 +45,8 @@ Welcome. This guide walks you through everything you need to be productive on da
 **What is opencode?** opencode is an AI coding assistant that runs in your terminal (the black window where you type commands). You type or say what you want to build, and it writes code, runs commands, and edits files for you.
 
 ### macOS
+
+**Video walkthrough:** Watch [youtube.com/watch?v=3POcXtKkMtw](https://www.youtube.com/watch?v=3POcXtKkMtw) for a visual guide to installing opencode on macOS. Skip 3:11–3:49 — that part covers VS Code's built-in terminal, which you don't need unless you already use VS Code.
 
 **Before you start — do you have Homebrew?** Homebrew is a tool that installs other software on Mac. Open your Terminal app (search for "Terminal" in Spotlight). Type this and press Enter:
 
