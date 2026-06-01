@@ -96,7 +96,7 @@ In any project folder, type:
 opencode
 ```
 
-The first time you run this, opencode will say something like "No API provider configured" and ask you to pick one. **Do not pick anything yet** — go to section 2 first to set up a free model. When you come back, you'll use the `/connect` command to add the provider.
+The first time you run this, opencode may ask you to pick a model. Go to section 2 — you'll use the `/model` command to select the free DeepSeek V4 model.
 
 ---
 
@@ -104,76 +104,21 @@ The first time you run this, opencode will say something like "No API provider c
 
 **What is a "model"?** Think of a model as the AI brain that powers opencode. Different models have different strengths — some are better at coding, some are faster, some are free.
 
-**What is an "API key"?** A secret code that proves you're allowed to use a particular model provider. You get it from the provider's website and paste it into opencode.
+**Which one should you pick?** Start with **DeepSeek V4** — it's free, excellent at coding, and **available directly in opencode** (no provider account or API key to set up).
 
-**Which one should you pick?** Start with **DeepSeek V4 via OpenRouter** — it's free and excellent at coding.
+### Select DeepSeek V4
 
-### Recommended: DeepSeek V4 through OpenRouter
-
-**Step 1 — Create an OpenRouter account**
-
-Go to [openrouter.ai](https://openrouter.ai) in your web browser.
-
-Click the **Sign Up** or **Get Started** button. You can sign up with your Google account (click the Google button) or with any email address. Use your **msg2ai email** (the one your manager gave you for work).
-
-Once you're signed in, you'll land on the OpenRouter dashboard.
-
-**Step 2 — Create an API key**
-
-On the left sidebar, click **Keys** (or go to [openrouter.ai/keys](https://openrouter.ai/keys)).
-
-Click the **Create Key** button. A popup will appear showing a long string of random letters and numbers — **this is your API key**. Copy it to your clipboard (click the copy icon or select it and press Cmd+C on Mac / Ctrl+C on Windows).
-
-⚠️ **Important:** This is the only time you'll see this key. If you lose it, you'll need to create a new one.
-
-**Step 3 — Add the key to opencode**
-
-In your terminal (where opencode is running or where you're about to run it), opencode uses a command called `/connect` to add API providers.
-
-If you already ran `opencode` and it prompted you to pick a provider:
-- You'll see a list of providers. Type `OpenRouter` (or scroll to it with arrow keys) and press Enter.
-- It will ask for your API key. Paste it (Cmd+V on Mac, Ctrl+V on Windows — or right-click → Paste in some terminals).
-- Press Enter.
-
-If you haven't run opencode yet:
-- Run `opencode` from your terminal.
-- When asked to pick a provider, choose **OpenRouter** and paste your key.
-
-**Step 4 — Select the DeepSeek V4 model**
-
-After pasting your API key, opencode will show a list of available models. Look for one called **DeepSeek V4** — it may appear as something like `deepseek/deepseek-v4` or `deepseek/deepseek-chat-v4:free`.
-
-Use the arrow keys to scroll to it and press Enter.
-
-If you don't see DeepSeek V4 in the list:
-1. Type `/model` and press Enter
-2. Search for "deepseek v4" or "deepseek/deepseek"
-3. Select the one with `:free` at the end if available
-
-**That's it.** You now have a free AI coding assistant running on DeepSeek V4.
-
-### Alternative: Google Gemini (also free, huge daily quota)
-
-If OpenRouter isn't working for you or you want a backup:
-
-1. Go to [aistudio.google.com](https://aistudio.google.com).
-2. Sign in with your Google account (use your msg2ai email).
-3. Click **Get API key** → **Create API key**.
-4. Copy the key that appears.
-5. In opencode, type `/connect`, choose **Google Gemini**, paste the key.
-6. When asked to pick a model, choose `gemini-2.5-pro`.
-
-### Switching models later
-
-Want to try a different model later? Inside opencode, type:
+Inside opencode, type:
 
 ```
 /model
 ```
 
-This shows the model list again — pick a new one anytime. You can add multiple providers by running `/connect` again.
+This opens the model list. Search for **DeepSeek V4**, then press Enter.
 
-Need to check which provider and model you're currently using? Type `/model` and it will show your current selection.
+**That's it.** You now have a free AI coding assistant running on DeepSeek V4.
+
+> Want to switch models later? Type `/model` again any time — it shows the list and your current selection.
 
 ---
 

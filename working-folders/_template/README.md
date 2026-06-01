@@ -32,5 +32,6 @@
 
 ## Status
 
+- 🗺️ **Planning:** [`./planning/`](./planning/) — forward-looking plans for new goals/projects
 - 📋 **Progress reports:** [`./progress-reports/`](./progress-reports/) — one file per Friday
 - 🛠️ **Work products:** [`./workproducts/`](./workproducts/)
