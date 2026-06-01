@@ -39,7 +39,7 @@ This is a **Markdown** file (`.md`). To view it with proper formatting (bold tex
 
 Once you have one, open this file in that app to see headings, bullet points, code blocks, and links rendered cleanly.
 
-## 2. Install opencode
+## 1. Install opencode
 
 **What is opencode?** opencode is an AI coding assistant that runs in your terminal (the black window where you type commands). You type or say what you want to build, and it writes code, runs commands, and edits files for you.
 
