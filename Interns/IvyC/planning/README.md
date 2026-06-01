@@ -24,4 +24,4 @@ A good rhythm: write a plan here at the start of a goal, then each Friday's prog
 
 ## Example
 
-[`ai-ambassador-gcc-1week-plan.md`](./ai-ambassador-gcc-1week-plan.md) — a 1-week GTM starter plan for the AI Ambassador (msg2ai Events) in the GCC. Use it as a model for structure: clear goal, measurable weekly targets, and a day-by-day breakdown with an outcome per day.
+[`imex-frankfurt-free-claude-skills-plan.md`](./imex-frankfurt-free-claude-skills-plan.md) — a 1-week GTM plan: free Claude Skills for events managers, targeting event organisers and travel agencies at IMEX Frankfurt. Use it as a model for structure: clear goal, measurable weekly targets, and a day-by-day breakdown with an outcome per day.
