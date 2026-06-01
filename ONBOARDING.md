@@ -40,7 +40,25 @@ Once you have one, open this file in that app to see headings, bullet points, co
 
 ---
 
-## 1. Install opencode
+## 1. Join Happenstance + Rethink Labs
+
+**What is Happenstance?** [Happenstance](https://happenstance.ai) is an AI-powered networking platform the team uses to stay connected. Joining the Rethink Labs group on Happenstance is how you'll receive invitations to team events, see who else is in the org, and tap into the network.
+
+**Step 1 — Sign up**
+
+Go to [happenstance.ai](https://happenstance.ai) and create an account. **You must sign up with your msg2ai email** (the work email your manager gave you) — that's how the system knows you belong to Rethink Labs and automatically sends you the group invitation.
+
+**Step 2 — Accept the group invite**
+
+Once you've signed up, ask your manager to send you the Rethink Labs group invitation, or check your msg2ai inbox for an auto-invite. Follow the link to join.
+
+**Step 3 — Set up your profile**
+
+Add your name, role (e.g. "Intern"), and a photo so the team can recognize you.
+
+---
+
+## 2. Install opencode
 
 **What is opencode?** opencode is an AI coding assistant that runs in your terminal (the black window where you type commands). You type or say what you want to build, and it writes code, runs commands, and edits files for you.
 
