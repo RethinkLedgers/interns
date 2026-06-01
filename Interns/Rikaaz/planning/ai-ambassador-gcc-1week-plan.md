@@ -26,6 +26,7 @@
 - **Apollo.io** — find event organizers, venues, DMCs/PCOs and enrich decision-maker emails.
 - **Twenty CRM** (`rethink-labs.twenty.com`) — log every account, contact, and call.
 - **Zoho** — send sequenced outreach in small, personalized batches.
+- **Happenstance.ai** — tap the team network for warm intros and to find who can connect you into target accounts.
 - **Obsidian wiki** — write up market-analysis notes.
 
 > Ground rules: work from the **msg2ai email**, keep all testing on **Test**, never put API keys or contact lists in a tracked Git file, and never email at scale from Prod.
