@@ -1,6 +1,6 @@
-# Abby
+# Masoud
 
-> This is Abby's personal working folder: profile, weekly progress reports, and work products live here.
+> This is Masoud's personal working folder: profile, weekly progress reports, and work products live here.
 
 ## About me
 
@@ -27,7 +27,7 @@
 ## How to reach me
 
 - **Slack:** @your-handle
-- **Email:** abby.schwartz@msg2ai.xyz
+- **Email:** masoud@msg2ai.xyz
 - **Best hours:** e.g. "9am–5pm ET, Mon–Fri"
 
 ## Status
