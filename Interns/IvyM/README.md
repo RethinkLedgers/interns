@@ -27,7 +27,7 @@
 ## How to reach me
 
 - **Slack:** @your-handle
-- **Email:** ivy.jamero@msg2ai.xyz
+- **Email:** ivy.cayabo@msg2ai.xyz
 - **Best hours:** e.g. "9am–5pm ET, Mon–Fri"
 
 ## Status

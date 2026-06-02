@@ -1,6 +1,6 @@
-# IvyC
+# IvyJ
 
-> This is IvyC's personal working folder: profile, weekly progress reports, and work products live here.
+> This is IvyJ's personal working folder: profile, weekly progress reports, and work products live here.
 
 ## About me
 
@@ -27,7 +27,7 @@
 ## How to reach me
 
 - **Slack:** @your-handle
-- **Email:** ivy.cayabo@msg2ai.xyz
+- **Email:** ivy.jamero@msg2ai.xyz
 - **Best hours:** e.g. "9am–5pm ET, Mon–Fri"
 
 ## Status
