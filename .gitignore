@@ -5,7 +5,9 @@ ONBOARDING-ADMIN.*.md
 # Local opencode config (may contain API keys)
 opencode.json
 opencode.jsonc
-.opencode/
+.opencode/*
+# ...but DO share packaged skills (no secrets — they read creds from env)
+!.opencode/skills/
 
 # Composio local state
 .composio/
