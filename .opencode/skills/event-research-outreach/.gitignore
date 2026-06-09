@@ -1,0 +1,10 @@
+# Python build cruft
+__pycache__/
+*.pyc
+
+# Never commit researched third-party contact data or generated outreach artifacts
+# (GDPR/privacy). These are created at runtime under the chosen workdir.
+outreach/
+*.eml
+*.env
+.env
