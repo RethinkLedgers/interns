@@ -7,7 +7,7 @@
 **Goal:** Customer Discovery → Market Analysis → Customer Outreach (email + organized campaigns)
 **Objectives:** drive **initial calls**, **signups**, and **sales growth** with event organizers in Oman, Dubai & Abu Dhabi
 
-## Weekly targets (KPIs to hit by Friday)
+## Weekly targets (KPIs to hit by end of week)
 
 | Metric | Target |
 | --- | --- |
@@ -18,7 +18,7 @@
 | **Initial calls / demos booked** | **3–5** |
 | Free signups on Test/demo | **2–3** |
 
-> Targets are starter estimates — adjust with your manager after Day 1.
+> Targets are starter estimates — adjust with your manager after the first phase.
 
 ## Tools you'll use
 
@@ -33,7 +33,7 @@
 
 ---
 
-## Day 1 — Product immersion + define the ICP
+## Phase 1 — Product immersion + define the ICP
 
 *Outcome: you can explain the AI Ambassador in 2 sentences and know exactly who to sell to.*
 
@@ -42,7 +42,7 @@
 - Draft the **Ideal Customer Profile (ICP):** exhibition & conference organizers, PCOs, DMCs/MICE agencies, expo & government-event teams, and major venues — Dubai World Trade Centre, Dubai Exhibition Centre (Expo City), ADNEC Abu Dhabi, and the Oman Convention & Exhibition Centre in Muscat — plus large wedding/MICE planners.
 - Write a one-paragraph **value proposition** tailored to the region (WhatsApp-first, Arabic + English, automated attendee onboarding & check-in, sponsor/speaker meeting booking).
 
-## Day 2 — Market analysis (Oman / Dubai / Abu Dhabi events landscape)
+## Phase 2 — Market analysis (Oman / Dubai / Abu Dhabi events landscape)
 
 *Outcome: a short market brief that informs targeting and the pitch.*
 
@@ -51,7 +51,7 @@
 - Note the buying context: WhatsApp dominance in the region, Arabic + English need, peak event seasons (Oct–Apr), and strong UAE expo/MICE activity plus Oman's growing tourism & events push.
 - Deliverable: **1–2 page market brief** in the Obsidian wiki (segments, top accounts, key hooks, objections).
 
-## Day 3 — Customer discovery (build the target list)
+## Phase 3 — Customer discovery (build the target list)
 
 *Outcome: 60–80 qualified accounts and 120+ contacts in the CRM.*
 
@@ -60,23 +60,23 @@
 - Enrich and import into **Twenty CRM** — one Company record per org, Contacts linked, tagged by emirate/country + segment.
 - For the **top 15 accounts**, find a specific recent or upcoming event to reference in outreach (personalization hook).
 
-## Day 4 — Outreach prep (sequences, templates, CRM hygiene)
+## Phase 4 — Outreach prep (sequences, templates, CRM hygiene)
 
 *Outcome: a ready-to-send campaign, fully personalized at the top of funnel.*
 
 - Write a **3-touch email sequence** (initial → value/case follow-up → break-up), each ≤120 words, with one clear CTA: *book a 15-min call / see a live demo*.
 - Build **2–3 segment variants** (venues vs. organizers vs. DMCs) and an Arabic subject-line option.
 - Prepare a **demo asset**: a short Loom/screenshare of the Events assistant from Test, or a live test number they can text.
-- Set up CRM stages (Prospect → Contacted → Replied → Call Booked → Signup) and a daily follow-up view. Confirm deliverability basics (send from the msg2ai email, small batches, no spammy links).
+- Set up CRM stages (Prospect → Contacted → Replied → Call Booked → Signup) and a recurring follow-up view. Confirm deliverability basics (send from the msg2ai email, small batches, no spammy links).
 
-## Day 5 — Launch campaigns, book calls, report
+## Phase 5 — Launch campaigns, book calls, report
 
 *Outcome: campaign live, calls on the calendar, week wrapped up.*
 
 - Send **Touch 1** to the full qualified list in **small batches** (e.g. 20–30 personalized), prioritizing the top-15 hooks.
 - Work replies in real time → **book initial calls/demos**; log every reply and outcome in Twenty.
 - Offer warm leads a **free Test signup** so they can try the AI Ambassador.
-- Write the **Friday progress report** in [`../progress-reports/`](../progress-reports/): emails sent, open/reply rates, calls booked, signups, what resonated, objections heard, and next-week plan (Touch 2/3, expand list, add WhatsApp outreach where appropriate).
+- Write the **end-of-week progress report** in [`../progress-reports/`](../progress-reports/): emails sent, open/reply rates, calls booked, signups, what resonated, objections heard, and next-week plan (Touch 2/3, expand list, add WhatsApp outreach where appropriate).
 
 ---
 
@@ -87,4 +87,4 @@
 - [ ] 3-touch email sequence + segment variants written and reviewed
 - [ ] Touch 1 sent to the full list
 - [ ] 3–5 initial calls/demos booked
-- [ ] Friday progress report submitted
+- [ ] End-of-week progress report submitted
