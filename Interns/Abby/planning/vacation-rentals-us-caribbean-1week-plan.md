@@ -82,6 +82,31 @@
 
 ---
 
+## msg2ai-leads skills — your build-and-outreach toolkit
+
+The **`msg2ai-leads`** repo packages five Claude Code skills that take a website all the way to outreach. Full guide: **[SKILLS-OVERVIEW.md](https://github.com/RethinkLedgers/msg2ai-leads/blob/main/SKILLS-OVERVIEW.md)**.
+
+**Pipeline:** ① build a JSON config from a URL (`/event-assistant-creation`, `/concierge-assistant-creation`) → ② set it live on msg2ai-server (`import-event-assistant.js` / `import-concierge-assistant.js`) → ③ make a promo video (`/website-to-video`, `/event-promo-video`, `/str-property-to-video`) → ④–⑤ **outreach**.
+
+### Outreach skills (lean on these for Phase 4–5)
+
+The outreach skills read straight from a built event/property package (its JSON + import receipt + short URLs), so steps ①–③ feed your campaigns automatically. **Prefer these over writing outreach from scratch** — they keep messaging on-brand and pull real details from the assistant you built:
+
+- **`/draft-organizer-email`** — the first "your assistant is ready, here are test questions" note after onboarding (plain professional draft + QR onboarding).
+- **`/ai-ambassador-email-pitch`** — a polished, mobile-responsive **HTML** pitch once you have a promo video (value first, video last).
+- **`/event-outreach-followup`** — a short nudge when the first email gets no reply, or to announce a new video (`nudge` / `video-launch` / `two-tools` variants).
+- **`/drip-campaign-outreach`** — a full multi-touch sequence with US / EMEA wording variants, pushed to li-extract for scheduling. Event cadence (vacation-rental campaigns run a shorter 4-touch, email-only):
+
+  | Touch | Timing | Purpose |
+  | --- | --- | --- |
+  | 1 | Day 0 | "Your assistant is ready" — try it with test questions |
+  | 2 | +7 days | Re-engage from a new angle (a speaker, a specific session) |
+  | 3 | +14 days | Video — AI Ambassador + ActionNotes, clickable poster, 2 CTAs |
+  | 4 | +21 days | Partnership offer — free setup, "sponsored by" framing |
+  | 5 | event end +5 days | Post-event recap + next-event opportunity |
+
+> These power the **Outreach prep** and **Launch** phases above — build the assistant and video first, then let the outreach skills turn that package into emails and a drip sequence.
+
 ## Using OpenCode (and your other tools) to work faster
 
 Most tasks above go faster with an AI agent. **OpenCode** is the team's terminal AI agent (use **Cursor** if you prefer a GUI) — point it at the work and let it draft, clean, and summarize while you steer:
