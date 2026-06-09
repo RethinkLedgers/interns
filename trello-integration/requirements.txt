@@ -1,0 +1,2 @@
+composio-core
+python-dotenv
