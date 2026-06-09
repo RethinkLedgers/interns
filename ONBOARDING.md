@@ -730,6 +730,36 @@ Invoke it inline:
 
 > *"@security-review the changes on this branch."*
 
+### A worked example: a packaged skill
+
+Newer opencode also supports **packaged skills** — a `SKILL.md` plus its own `references/` and `scripts/`, installed under `~/.config/opencode/skills/<name>/` (global) or a repo's `.opencode/skills/` (commit to share). A useful template to study is **`event-research-outreach`**, an end-to-end research → outreach workflow (adaptable per vertical — events, conferences, short-term rentals):
+
+- **Research** target events/companies and write a dated analysis report of new findings.
+- Maintain a **deduplicated master contact database** with a status pipeline.
+- **Verify** every email address (via hunter.io) before it's used.
+- **Draft** personalized HTML outreach from your msg2ai sender address. It **defaults to draft mode** — it won't send without an explicit instruction, and never to unverified addresses.
+
+Layout:
+
+```text
+~/.config/opencode/skills/event-research-outreach/
+  SKILL.md                        # workflow: research → dedup DB → contact research → verify → draft/send
+  references/zoho-setup.md        # Zoho sending options (SMTP, OAuth API, MCP)
+  references/msg2ai-positioning.md
+  scripts/zoho_send.py            # Zoho Mail sender (Python stdlib)
+  scripts/hunter_verify.sh        # hunter.io email verification
+```
+
+Sending through **Zoho Mail** — pick one path:
+
+- **SMTP (app password):** set the Zoho SMTP env vars and use the SMTP sender (ports **465** SSL / **587** TLS; `smtppro.zoho.com` for a custom domain).
+- **OAuth API (self-client):** a client ID, secret, and refresh token supplied as env vars; needs the `ZohoMail.messages.CREATE` scope.
+- **MCP:** point opencode at a Zoho Mail MCP (e.g. a Composio-hosted one) and let the agent call its `sendEmail` tool.
+
+> Zoho's **data-center hostnames differ by region** (`.com` vs `.eu`) — use the one that matches your account.
+
+> **Never commit credentials.** Zoho keys, refresh tokens, and the hunter.io key belong in environment variables or gitignored config (`.env*`, `.opencode/`), never in the repo — keep the skill's default draft-mode + verified-addresses-only behavior.
+
 ### Find community agents
 
 There is no central marketplace yet. The best sources:
