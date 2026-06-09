@@ -1,4 +1,4 @@
-# AI Ambassador (msg2ai Events) — Intern 1-Week GTM Plan
+# AI Ambassador (msg2ai Events) — Intern GTM Plan
 
 > Example planning doc. The **AI Ambassador** is msg2ai's **Events assistant**: a WhatsApp/SMS AI concierge for event organizers that handles attendee onboarding, agenda, meeting requests, and QR check-in. See [`products/ai_ambassador/ai_ambassador_product_guideline.md`](../../../products/ai_ambassador/ai_ambassador_product_guideline.md).
 
@@ -79,6 +79,27 @@
 - Write the **end-of-week progress report** in [`../progress-reports/`](../progress-reports/): emails sent, open/reply rates, calls booked, signups, what resonated, objections heard, and next-week plan (Touch 2/3, expand list, add WhatsApp outreach where appropriate).
 
 ---
+
+## Using OpenCode (and your other tools) to work faster
+
+Most tasks above go faster with an AI agent. **OpenCode** is the team's terminal AI agent (use **Cursor** if you prefer a GUI) — point it at the work and let it draft, clean, and summarize while you steer:
+
+- **Research & market analysis** — summarize the local landscape, structure segments/top accounts, and draft the market brief from your raw notes.
+- **Customer discovery** — clean, dedupe, and reformat Apollo exports into import-ready lists for Twenty.
+- **Outreach prep** — draft and tighten the 3-touch sequence and segment variants (keep each ≤120 words), and spin up subject-line options.
+- **CRM hygiene & reporting** — turn your activity into the progress report, compute open/reply rates, and draft the write-up.
+
+Other tools in the stack help too: **Tailscale** for secure access to internal/self-hosted services, **Composio** to connect apps (auth) to your agent, **Paperclip** to run agents like teammates, and the **Obsidian** wiki for notes. Always review AI output before it goes out, and **never paste API keys or contact lists into a tracked Git file or into an AI prompt that logs them.**
+
+## Post your outcomes back to GitHub
+
+**Everything you produce goes back to GitHub, in your own personal folder** — so your manager can see progress and the team can build on it:
+
+- Briefs, cleaned lists, email drafts, demo links, and other artifacts → [`../workproducts/`](../workproducts/)
+- Your end-of-week write-up → [`../progress-reports/`](../progress-reports/)
+- Keep this plan current as things change → this `planning/` folder
+
+Work on a branch and open a **PR against `main`** (don't push straight to `main`). Never commit secrets, API keys, or raw contact lists.
 
 ## Definition of done (end of week)
 

@@ -1,6 +1,6 @@
-# AI Ambassador (msg2ai Events) — Intern 1-Week GTM Plan
+# AI Ambassador (msg2ai Events) — Intern GTM Plan
 
-> Example planning doc. The **AI Ambassador** is msg2ai's **Events assistant**: a WhatsApp/SMS AI concierge for event organizers that handles attendee onboarding, agenda, meeting requests, and QR check-in. See [`products/ai_ambassador/ai_ambassador_product_guideline.md`](../../../products/ai_ambassador/ai_ambassador_product_guideline.md).
+> Example planning doc. The **AI Ambassador** is msg2ai's **Events assistant**: a WhatsApp/SMS AI concierge for event organizers that handles attendee onboarding, agenda, meeting requests, and QR check-in. See `[products/ai_ambassador/ai_ambassador_product_guideline.md](../../../products/ai_ambassador/ai_ambassador_product_guideline.md)`.
 
 **Region:** United States · Caribbean
 **Vertical focus:** **Vacation Rentals** — short-term rental (STR) hosts, property managers, and vacation-rental management companies (Airbnb/VRBO-style, beach & resort destinations).
@@ -9,14 +9,16 @@
 
 ## Weekly targets (KPIs to hit by end of week)
 
-| Metric | Target |
-| --- | --- |
-| Target accounts researched & qualified | **60–80** event organizers/venues |
-| Decision-maker contacts enriched in CRM | **120+** |
-| Outreach emails sent (sequenced) | **100+** |
-| Replies / positive responses | **8–12** |
-| **Initial calls / demos booked** | **3–5** |
-| Free signups on Test/demo | **2–3** |
+
+| Metric                                  | Target                            |
+| --------------------------------------- | --------------------------------- |
+| Target accounts researched & qualified  | **60–80** event organizers/venues |
+| Decision-maker contacts enriched in CRM | **120+**                          |
+| Outreach emails sent (sequenced)        | **100+**                          |
+| Replies / positive responses            | **8–12**                          |
+| **Initial calls / demos booked**        | **3–5**                           |
+| Free signups on Test/demo               | **2–3**                           |
+
 
 > Targets are starter estimates — adjust with your manager after the first phase.
 
@@ -38,7 +40,6 @@
 *Outcome: you can explain the AI Ambassador in 2 sentences and know exactly who to sell to.*
 
 - Run Exercises 1–5 from the product guideline on **Test** (send a DM, build a Concierge assistant, import an audience, run a 5-min-delayed broadcast, read Message Logs).
-- Focus on the **Concierge** assistant type + **guest Q&A** + the **Guesty / Hostaway / Hospitable** integrations — these are the vacation-rental story.
 - Draft the **Ideal Customer Profile (ICP):** STR property managers and vacation-rental management companies (managing ~25–500+ units), boutique resort & villa operators, and hosts in top US leisure markets (Florida, Gulf Coast, Smokies/Gatlinburg, Outer Banks, Hawaii, Arizona) and the Caribbean (Puerto Rico, Dominican Republic, Bahamas, Jamaica, Turks & Caicos, USVI).
 - Write a one-paragraph **value proposition** tailored to vacation rentals (SMS/WhatsApp guest concierge, English + Spanish, automated check-in/checkout instructions, 24/7 answers to "where's the WiFi / how do I get in", upsells, and review prompts — fewer manual messages per booking).
 
@@ -59,6 +60,7 @@
 - Qualify each account against the ICP (unit count, which PMS they use, how many guest messages they handle manually).
 - Enrich and import into **Twenty CRM** — one Company record per operator, Contacts linked, tagged by market + PMS + unit-count band.
 - For the **top 15 accounts**, find a specific hook (number of listings, a destination, a recent expansion) to reference in outreach.
+- search for specific Property Managers on Happenstance
 
 ## Phase 4 — Outreach prep (sequences, templates, CRM hygiene)
 
@@ -76,9 +78,30 @@
 - Send **Touch 1** to the full qualified list in **small batches** (e.g. 20–30 personalized), prioritizing the top-15 hooks.
 - Work replies in real time → **book initial calls/demos**; log every reply and outcome in Twenty.
 - Offer warm leads a **free Test signup** so they can try the AI Ambassador.
-- Write the **end-of-week progress report** in [`../progress-reports/`](../progress-reports/): emails sent, open/reply rates, calls booked, signups, what resonated, objections heard, and next-week plan (Touch 2/3, expand list, add WhatsApp outreach where appropriate).
+- Write the **end-of-week progress report** in `[../progress-reports/](../progress-reports/)`: emails sent, open/reply rates, calls booked, signups, what resonated, objections heard, and next-week plan (Touch 2/3, expand list, add WhatsApp outreach where appropriate).
 
 ---
+
+## Using OpenCode (and your other tools) to work faster
+
+Most tasks above go faster with an AI agent. **OpenCode** is the team's terminal AI agent (use **Cursor** if you prefer a GUI) — point it at the work and let it draft, clean, and summarize while you steer:
+
+- **Research & market analysis** — summarize the local landscape, structure segments/top accounts, and draft the market brief from your raw notes.
+- **Customer discovery** — clean, dedupe, and reformat Apollo exports into import-ready lists for Twenty.
+- **Outreach prep** — draft and tighten the 3-touch sequence and segment variants (keep each ≤120 words), and spin up subject-line options.
+- **CRM hygiene & reporting** — turn your activity into the progress report, compute open/reply rates, and draft the write-up.
+
+Other tools in the stack help too: **Tailscale** for secure access to internal/self-hosted services, **Composio** to connect apps (auth) to your agent, **Paperclip** to run agents like teammates, and the **Obsidian** wiki for notes. Always review AI output before it goes out, and **never paste API keys or contact lists into a tracked Git file or into an AI prompt that logs them.**
+
+## Post your outcomes back to GitHub
+
+**Everything you produce goes back to GitHub, in your own personal folder** — so your manager can see progress and the team can build on it:
+
+- Briefs, cleaned lists, email drafts, demo links, and other artifacts → `[../workproducts/](../workproducts/)`
+- Your end-of-week write-up → `[../progress-reports/](../progress-reports/)`
+- Keep this plan current as things change → this `planning/` folder
+
+Work on a branch and open a **PR against `main`** (don't push straight to `main`). Never commit secrets, API keys, or raw contact lists.
 
 ## Definition of done (end of week)
 
