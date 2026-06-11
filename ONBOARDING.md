@@ -952,6 +952,12 @@ Add your name, role (e.g. "Intern"), and a photo so the team can recognize you.
 
 ## 12. The Rethink-Labs Obsidian wiki — your second brain
 
+> # 🚧 COMING SOON — WE ARE STILL WORKING ON THIS 🚧
+>
+> This chapter is a **work in progress**. The concept below is real, but the Rethink-Labs
+> setup, conventions, and workflow aren't finalized yet — **don't rely on the specifics
+> until this banner is gone.**
+
 Our team's shared knowledge base lives in an **Obsidian vault**. Obsidian is a free, local-first, markdown-based note-taking app — every "note" is just a `.md` file, every "link" is `[[wiki-style]]`, and the whole vault is a regular folder you can put in git. That means our wiki is **the same kind of artifact as our code**: editable in any text editor, version-controlled, and readable by opencode.
 
 > **What lives here:** onboarding context, project briefs, meeting notes, architecture decisions, intern weekly updates, agent prompts that aren't yet codified into opencode skills, and anything else that's prose rather than code. If you're tempted to put it in a Slack message that you'll want to find again in three weeks — put it in the wiki instead.
