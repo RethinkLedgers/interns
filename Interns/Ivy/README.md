@@ -28,6 +28,7 @@
 
 - **Slack:** @your-handle
 - **Email:** ivy.jamero@msg2ai.xyz
+- **msg2ai number:** +1 781 653 6444
 - **Best hours:** e.g. "9am–5pm ET, Mon–Fri"
 
 ## Status

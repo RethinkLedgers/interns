@@ -28,6 +28,7 @@
 
 - **Slack:** @your-handle
 - **Email:** abby.schwartz@msg2ai.xyz
+- **msg2ai number:** +1 573 799 3385
 - **Best hours:** e.g. "9am–5pm ET, Mon–Fri"
 
 ## Status

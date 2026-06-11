@@ -28,6 +28,7 @@
 
 - **Slack:** @your-handle
 - **Email:** aima.ibrahim@msg2ai.xyz
+- **msg2ai number:** +1 415 649 2896
 - **Best hours:** e.g. "9am–5pm ET, Mon–Fri"
 
 ## Status
