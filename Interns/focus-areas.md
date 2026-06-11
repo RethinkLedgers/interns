@@ -1,4 +1,4 @@
-# Intern Focus Areas
+# Intern Focus Area
 
 A one-page summary of what each intern is focused on, drawn from their `planning/` docs.
 
