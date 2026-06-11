@@ -9,9 +9,9 @@ Welcome. This guide walks you through everything you need to be productive on da
 5. Connect **MCP servers** to opencode — including **Composio** for managed app authentication
 6. Create or find **skills (agents)** for opencode
 7. Get oriented on **Paperclip** and how to use opencode as its underlying LLM
-8. Use the **shared Obsidian wiki** as the team's knowledge base
-9. Work in **Twenty CRM** at `rethink-labs.twenty.com` and wire it into opencode
-10. Join **Happenstance + Rethink Labs** with your msg2ai email
+8. Work in **Twenty CRM** at `rethink-labs.twenty.com` and wire it into opencode
+9. Join **Happenstance + Rethink Labs** with your msg2ai email
+10. Build a **second brain** in the shared **Obsidian wiki** — a knowledge base your LLM maintains
 
 > If anything in this doc is wrong or stale, fix it in the repo and open a PR. Don't suffer in silence.
 
@@ -837,94 +837,9 @@ cd /path/to/agent/workdir && opencode run "$(cat .paperclip/current-prompt.md)"
 
 ---
 
-## 10. The Rethink-Labs Obsidian wiki
+## 10. CRM — Twenty and `rethink-labs.twenty.com`
 
-Our team's shared knowledge base lives in an **Obsidian vault**. Obsidian is a free, local-first, markdown-based note-taking app — every "note" is just a `.md` file, every "link" is `[[wiki-style]]`, and the whole vault is a regular folder you can put in git. That means our wiki is **the same kind of artifact as our code**: editable in any text editor, version-controlled, and readable by opencode.
-
-> **What lives here:** onboarding context, project briefs, meeting notes, architecture decisions, intern weekly updates, agent prompts that aren't yet codified into opencode skills, and anything else that's prose rather than code. If you're tempted to put it in a Slack message that you'll want to find again in three weeks — put it in the wiki instead.
-
-### 10.1 Install Obsidian
-
-- **macOS:** `brew install --cask obsidian` (or download from [obsidian.md](https://obsidian.md))
-- **Windows:** download the installer from [obsidian.md](https://obsidian.md), or `winget install Obsidian.Obsidian`
-
-It's free for personal use, no account required.
-
-### 10.2 Get the shared vault
-
-The shared wiki is a git repo so we get history, blame, and PR review for free.
-
-```bash
-git clone git@github.com:RethinkLedgers/<wiki-repo-name>.git ~/Obsidian/Rethink-Labs
-```
-
-> **TODO — fill in:** the exact repo name (`<wiki-repo-name>`) is set by your manager during onboarding. If you can't find it, ask in the intern channel.
-
-Then in Obsidian: **Open folder as vault** → pick `~/Obsidian/Rethink-Labs`. Trust the vault when prompted (this lets community plugins run; only do this for vaults you trust, which ours is).
-
-### 10.3 Editing conventions
-
-- **Atomic notes.** One concept per file. If a note grows past ~500 lines, split it.
-- **Link liberally.** `[[Note Name]]` to connect things — backlinks are how the wiki gets useful.
-- **Use folders for major areas, tags for cross-cutting topics.** Suggested top-level folders: `00 - Onboarding`, `10 - Projects`, `20 - Meetings`, `30 - Decisions`, `40 - People`, `90 - Drafts`.
-- **Daily notes for ongoing work.** Use the Daily Notes core plugin; one note per day under `daily/YYYY-MM-DD.md`.
-- **Don't paste secrets.** The vault is private but it's still on GitHub. API keys, customer data, anything sensitive — keep it out.
-
-### 10.4 Sync workflow
-
-The vault is just a git repo, so it follows the same rules as Section 5:
-
-```bash
-cd ~/Obsidian/Rethink-Labs
-git pull               # before you start editing
-# ...edit in Obsidian...
-git add <files>
-git commit -m "Add notes on agent budget escalation"
-git push
-```
-
-For trivial daily-note updates we let people push straight to `main`. For anything that touches shared docs (project briefs, decisions, onboarding), open a PR so someone can sanity-check it.
-
-> **TODO — fill in:** confirm with your manager which folders require PR review vs. direct push, and whether we use the [Obsidian Git plugin](https://github.com/Vinzent03/obsidian-git) for auto-sync (recommended — it commits and pushes from inside Obsidian on a timer so you never forget).
-
-### 10.5 Let opencode read the wiki
-
-Because the vault is plain markdown, opencode can read it the same way it reads any repo — just `cd` into the vault and ask:
-
-> *"Read everything under `10 - Projects/Paperclip-Heartbeats/` and summarize the open questions."*
-
-For richer use (full-vault search, backlink awareness, tag queries), wire up an Obsidian MCP server in `opencode.json`. A popular option:
-
-```json
-{
-  "mcp": {
-    "obsidian": {
-      "type": "local",
-      "command": ["npx", "-y", "obsidian-mcp-server"],
-      "enabled": true,
-      "environment": {
-        "OBSIDIAN_VAULT_PATH": "/Users/you/Obsidian/Rethink-Labs"
-      }
-    }
-  }
-}
-```
-
-With that enabled, opencode can search by tag, follow backlinks, and create new notes in the vault. Useful prompts:
-
-> *"Use the obsidian MCP to find every note tagged `#decision` from the last 30 days and summarize them."*
->
-> *"Create a new note `30 - Decisions/2026-05-21 budget-warning-threshold.md` with a summary of the change I just shipped."*
-
-### 10.6 Why a wiki *and* code?
-
-The split is roughly: **code answers "how does it work,"** the **wiki answers "why did we build it this way."** Decisions, tradeoffs, dead ends, and people-context belong in the wiki. PR descriptions and code comments rot fast; a linked wiki note stays findable.
-
----
-
-## 11. CRM — Twenty and `rethink-labs.twenty.com`
-
-### 11.1 What Twenty is
+### 10.1 What Twenty is
 
 [Twenty](https://twenty.com) is an open-source CRM — think Salesforce or HubSpot, but MIT-licensed, GraphQL-first, and built for technical teams. It's the #1 open-source CRM on GitHub and the platform we use for tracking people, companies, opportunities, and the work surrounding them.
 
@@ -935,7 +850,7 @@ Why it matters for the internship:
 - **Native MCP server in every Cloud workspace.** This is the part that makes Twenty special for our stack: opencode (and any other MCP-aware agent) can read and write CRM data directly, with workspace-scoped API keys. No glue code required.
 - **Custom objects + no-code workflows.** You can model domain-specific entities (e.g. "Onboarding Cohort," "Compliance Filing") without touching the codebase.
 
-### 11.2 `rethink-labs.twenty.com` — our workspace
+### 10.2 `rethink-labs.twenty.com` — our workspace
 
 `rethink-labs.twenty.com` is the **Rethink Labs Twenty Cloud workspace** — the live CRM instance the team runs day-to-day. It's auth-gated (the page just says "Twenty" until you log in), so you need an account on the workspace before you can see anything.
 
@@ -948,28 +863,28 @@ What lives there (typical for a sales/ops CRM):
 - **Notes & Tasks** — meeting recaps, follow-ups, internal context attached to a record.
 - **Custom objects** — anything Rethink Labs models beyond the defaults. Ask before assuming an object is generic vs. team-specific.
 
-### 11.3 Day-one access checklist
+### 10.3 Day-one access checklist
 
 1. Ask your manager for an invite to `rethink-labs.twenty.com`.
 2. Sign in, take the in-app tour.
 3. **Settings → Members:** confirm your role (Admin vs. Member determines what you can edit and whether you can mint API keys).
-4. **Settings → APIs & Webhooks → Generate API key** — create one named `opencode-<your-name>` with a short expiration (30–90 days). You'll use this in Section 11.5 below.
+4. **Settings → APIs & Webhooks → Generate API key** — create one named `opencode-<your-name>` with a short expiration (30–90 days). You'll use this in Section 10.5 below.
 5. Star a few real records (a customer, a deal) so the Home view is useful from the start.
 
 > **Don't experiment in production.** Twenty has no "test mode." If you want to try a workflow or custom object, ask whether to use the prod workspace with a `[TEST]` prefix on the record name, or whether the team maintains a separate sandbox workspace.
 
-### 11.4 Conventions
+### 10.4 Conventions
 
 - **Don't bulk-edit without asking.** The API supports 50k-record imports — easy to nuke a pipeline by accident. Get a second pair of eyes on anything that touches >10 records.
 - **Notes > Slack messages.** If a piece of context (customer call summary, blocker, decision) belongs to a record, write it as a Note on that record. Future-you will find it; future-you will not find a Slack thread from August.
 - **Use the right object.** Don't put a person's notes on the company record or vice versa. Twenty's join behavior depends on this.
 - **Custom field changes are schema changes.** Adding a field is fine; renaming or deleting one can break integrations. Coordinate with the team before changing custom-object schemas.
 
-### 11.5 Connect Twenty to opencode (the fun part)
+### 10.5 Connect Twenty to opencode (the fun part)
 
 Because every Twenty Cloud workspace ships a native MCP server, you can give opencode CRM superpowers in three lines of config.
 
-1. Generate an API key in Twenty: **Settings → APIs & Webhooks → Generate API key** (Section 11.3 step 4).
+1. Generate an API key in Twenty: **Settings → APIs & Webhooks → Generate API key** (Section 10.3 step 4).
 2. Add this to your `opencode.json` (use the per-project config if the key should only apply to one repo, global config otherwise):
 
    ```json
@@ -1000,7 +915,7 @@ Now try prompts like:
 >
 > *"Show me the Company schema — which custom fields exist on it?"*
 
-### 11.6 Composio vs. native Twenty MCP
+### 10.6 Composio vs. native Twenty MCP
 
 Both work, with a useful distinction:
 
@@ -1009,7 +924,7 @@ Both work, with a useful distinction:
 
 Default to the native MCP for CRM-heavy tasks and reach for Composio when you're orchestrating across many apps.
 
-### 11.7 Where to learn more
+### 10.7 Where to learn more
 
 - [twenty.com](https://twenty.com) — product home, pricing, feature tour
 - [twentyhq/twenty on GitHub](https://github.com/twentyhq/twenty) — source, issues, roadmap
@@ -1017,7 +932,7 @@ Default to the native MCP for CRM-heavy tasks and reach for Composio when you're
 
 ---
 
-## 10. Join Happenstance + Rethink Labs
+## 11. Join Happenstance + Rethink Labs
 
 **What is Happenstance?** [Happenstance](https://happenstance.ai) is an AI-powered networking platform the team uses to stay connected. Joining the Rethink Labs group on Happenstance is how you'll receive invitations to team events, see who else is in the org, and tap into the network.
 
@@ -1032,6 +947,109 @@ Once you've signed up, ask your manager to send you the Rethink Labs group invit
 **Step 3 — Set up your profile**
 
 Add your name, role (e.g. "Intern"), and a photo so the team can recognize you.
+
+---
+
+## 12. The Rethink-Labs Obsidian wiki — your second brain
+
+Our team's shared knowledge base lives in an **Obsidian vault**. Obsidian is a free, local-first, markdown-based note-taking app — every "note" is just a `.md` file, every "link" is `[[wiki-style]]`, and the whole vault is a regular folder you can put in git. That means our wiki is **the same kind of artifact as our code**: editable in any text editor, version-controlled, and readable by opencode.
+
+> **What lives here:** onboarding context, project briefs, meeting notes, architecture decisions, intern weekly updates, agent prompts that aren't yet codified into opencode skills, and anything else that's prose rather than code. If you're tempted to put it in a Slack message that you'll want to find again in three weeks — put it in the wiki instead.
+
+### 12.1 The "second brain": a wiki your LLM maintains
+
+Treat the vault as a **second brain** — an external, persistent memory you and your agents grow over time, so knowledge *compounds* instead of being re-derived in every chat and then lost.
+
+This is the pattern Andrej Karpathy describes in his **["LLM wiki"](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f)** note. Instead of re-reading raw sources on every question (classic RAG), the LLM incrementally **builds and maintains a wiki**: interlinked markdown pages for entities, concepts, and synthesis. It keeps cross-references consistent, flags contradictions, and updates pages as you add sources — the tedious bookkeeping that makes humans abandon wikis is exactly what an LLM does tirelessly. You curate sources and ask questions; the agent maintains the pages; Obsidian is where you browse and verify.
+
+The loop, roughly:
+
+- **Ingest** — point the agent at a source; it extracts the key points and updates the relevant pages and `[[links]]`.
+- **Query** — ask a question; it searches the wiki, synthesizes an answer, and files anything worth keeping back as a new note (so explorations compound instead of vanishing into chat history).
+- **Lint** — periodically have it health-check the vault for contradictions, stale claims, and orphaned pages.
+
+Karpathy's setup uses a `CLAUDE.md` as the wiki's "schema" (structure, conventions, workflows), an `index.md` organized by category, and a chronological `log.md` — all maintained by the LLM while you stay in the loop.
+
+📺 **Setup walkthrough (Claude Code / opencode):** <https://www.youtube.com/watch?v=p3J0cdh4bdQ>
+
+> **More to come.** We'll add Rethink-Labs-specific conventions for how we use the wiki + wiki-LLM (our folder layout, the schema, and the exact agent workflow) — this section will grow as those land.
+
+### 12.2 Install Obsidian
+
+- **macOS:** `brew install --cask obsidian` (or download from [obsidian.md](https://obsidian.md))
+- **Windows:** download the installer from [obsidian.md](https://obsidian.md), or `winget install Obsidian.Obsidian`
+
+It's free for personal use, no account required.
+
+### 12.3 Get the shared vault
+
+The shared wiki is a git repo so we get history, blame, and PR review for free.
+
+```bash
+git clone git@github.com:RethinkLedgers/<wiki-repo-name>.git ~/Obsidian/Rethink-Labs
+```
+
+> **TODO — fill in:** the exact repo name (`<wiki-repo-name>`) is set by your manager during onboarding. If you can't find it, ask in the intern channel.
+
+Then in Obsidian: **Open folder as vault** → pick `~/Obsidian/Rethink-Labs`. Trust the vault when prompted (this lets community plugins run; only do this for vaults you trust, which ours is).
+
+### 12.4 Editing conventions
+
+- **Atomic notes.** One concept per file. If a note grows past ~500 lines, split it.
+- **Link liberally.** `[[Note Name]]` to connect things — backlinks are how the wiki gets useful.
+- **Use folders for major areas, tags for cross-cutting topics.** Suggested top-level folders: `00 - Onboarding`, `10 - Projects`, `20 - Meetings`, `30 - Decisions`, `40 - People`, `90 - Drafts`.
+- **Daily notes for ongoing work.** Use the Daily Notes core plugin; one note per day under `daily/YYYY-MM-DD.md`.
+- **Don't paste secrets.** The vault is private but it's still on GitHub. API keys, customer data, anything sensitive — keep it out.
+
+### 12.5 Sync workflow
+
+The vault is just a git repo, so it follows the same rules as Section 5:
+
+```bash
+cd ~/Obsidian/Rethink-Labs
+git pull               # before you start editing
+# ...edit in Obsidian...
+git add <files>
+git commit -m "Add notes on agent budget escalation"
+git push
+```
+
+For trivial daily-note updates we let people push straight to `main`. For anything that touches shared docs (project briefs, decisions, onboarding), open a PR so someone can sanity-check it.
+
+> **TODO — fill in:** confirm with your manager which folders require PR review vs. direct push, and whether we use the [Obsidian Git plugin](https://github.com/Vinzent03/obsidian-git) for auto-sync (recommended — it commits and pushes from inside Obsidian on a timer so you never forget).
+
+### 12.6 Let opencode read the wiki
+
+Because the vault is plain markdown, opencode can read it the same way it reads any repo — just `cd` into the vault and ask:
+
+> *"Read everything under `10 - Projects/Paperclip-Heartbeats/` and summarize the open questions."*
+
+For richer use (full-vault search, backlink awareness, tag queries), wire up an Obsidian MCP server in `opencode.json`. A popular option:
+
+```json
+{
+  "mcp": {
+    "obsidian": {
+      "type": "local",
+      "command": ["npx", "-y", "obsidian-mcp-server"],
+      "enabled": true,
+      "environment": {
+        "OBSIDIAN_VAULT_PATH": "/Users/you/Obsidian/Rethink-Labs"
+      }
+    }
+  }
+}
+```
+
+With that enabled, opencode can search by tag, follow backlinks, and create new notes in the vault. Useful prompts:
+
+> *"Use the obsidian MCP to find every note tagged `#decision` from the last 30 days and summarize them."*
+>
+> *"Create a new note `30 - Decisions/2026-05-21 budget-warning-threshold.md` with a summary of the change I just shipped."*
+
+### 12.7 Why a wiki *and* code?
+
+The split is roughly: **code answers "how does it work,"** the **wiki answers "why did we build it this way."** Decisions, tradeoffs, dead ends, and people-context belong in the wiki. PR descriptions and code comments rot fast; a linked wiki note stays findable.
 
 ---
 
