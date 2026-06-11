@@ -28,6 +28,7 @@
 
 - **Slack:** @your-handle
 - **Email:** rikaaz@msg2ai.xyz
+- **msg2ai number:** +1 860 780 8116
 - **Best hours:** e.g. "9am–5pm ET, Mon–Fri"
 
 ## Status

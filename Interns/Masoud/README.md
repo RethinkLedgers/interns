@@ -28,6 +28,7 @@
 
 - **Slack:** @your-handle
 - **Email:** masoud@msg2ai.xyz
+- **msg2ai number:** +1 980 980 1435
 - **Best hours:** e.g. "9am–5pm ET, Mon–Fri"
 
 ## Status
