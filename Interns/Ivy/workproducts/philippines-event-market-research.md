@@ -1,7 +1,16 @@
 # Philippines Events & MICE Market Brief
 
 ## Overview
-The Philippines is experiencing steady growth in the Meetings, Incentives, Conferences, and Exhibitions (MICE) sector, supported by government initiatives from the Department of Tourism (DOT) and Tourism Promotions Board (TPB). Metro Manila remains the country's primary business events hub, followed by Cebu, Davao, and Clark. Event organizers increasingly seek affordable digital communication solutions that improve attendee engagement while reducing operational costs.
+
+The Philippines is one of Southeast Asia's most dynamic and fastest-growing MICE (Meetings, Incentives, Conferences, and Exhibitions) markets. With a strategic geographic position at the heart of Asia, a predominantly English-speaking workforce, and a deeply embedded culture of hospitality, the country has become a compelling destination for business events both regional and global in scale.
+
+The sector is buoyed by active government backing through the Department of Tourism (DOT) and the Tourism Promotions Board (TPB), which run MICE accreditation programs, international marketing campaigns, and flagship events like PHITEX (Philippine Travel Exchange). The Philippines is also an ASEAN signatory to the MICE Venue Standards, a framework that pushes venues toward world-class quality — the Waterfront Cebu City Hotel was among the first five Philippine recipients of this prestigious certification.
+
+**Metro Manila** remains the undisputed epicenter, housing the country's three largest convention venues — SMX Convention Center Manila, World Trade Center Metro Manila, and the Philippine International Convention Center (PICC) — and hosting dozens of major trade shows and conferences year-round. Beyond the capital, **Cebu** stands as the strongest regional MICE hub, anchored by the Waterfront Cebu City Hotel (the largest MICE hotel in the Visayas) and the IEC Convention Center (IC3). **Davao** leads Mindanao's events landscape through SMX Davao and the upcoming Davcon Maa flagship, while **Clark** in Pampanga is emerging as a strategic alternative venue, fueled by the Clark Entertainment and Events Hub initiative and its proximity to Clark International Airport.
+
+The post-pandemic rebound has been vigorous. The 2026 calendar is packed with in-person trade shows across all major hubs — from WORLDBEX and MAFBEX in Manila to PHILBEX in Davao and Cebu, alongside international events organized by global players like Informa Markets and Chan Chao. Hybrid and multi-modal formats have become standard, creating a growing demand for digital tools that enhance attendee communication and engagement before, during, and after events.
+
+Against this backdrop, event organizers, convention centers, hotels, and tourism organizations are actively searching for affordable, multi-channel communication platforms. Facebook Messenger dominates everyday business messaging, SMS remains the most reliable channel for reminders and alerts, and WhatsApp and Viber are widely used for professional coordination. There is a clear and urgent need for solutions that unify these fragmented channels — reducing manual workload, cutting costs, and delivering a better experience for attendees who increasingly expect real-time, personalized communication at every touchpoint.
 
 ## Priority Hubs & Event Activity
 
