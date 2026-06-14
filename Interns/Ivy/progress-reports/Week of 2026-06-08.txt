@@ -1,0 +1,25 @@
+# Week of YYYY-MM-DD
+
+## What I shipped this week
+
+- [ ] Concrete output #1 (link to PR / Linear ticket / wiki note)
+- [ ] Concrete output #2
+
+## What I learned
+
+- One thing that clicked. Specific, not vague.
+
+## What I'm blocked on
+
+- Blocker + who can help unblock it.
+
+## Next week
+
+- [ ] Top priority
+- [ ] Stretch goal (if any)
+
+## Time and budget
+
+- **Hours worked this week:** N
+- **Notable agent spend (Paperclip $):** $N (or "n/a")
+4. Due: Every Friday by EOD, committed as part of normal push (no separate PR).
