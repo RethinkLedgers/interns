@@ -1,5 +1,7 @@
 # Philippines Events & MICE Market Brief
 
+<div style="text-align: justify">
+
 ## Overview
 
 The Philippines is one of Southeast Asia's most dynamic and fastest-growing MICE (Meetings, Incentives, Conferences, and Exhibitions) markets. With a strategic geographic position at the heart of Asia, a predominantly English-speaking workforce, and a deeply embedded culture of hospitality, the country has become a compelling destination for business events both regional and global in scale.
@@ -330,3 +332,5 @@ Against this backdrop, event organizers, convention centers, hotels, and tourism
 3. Build partnerships with convention centers and tourism organizations.
 4. Position the platform as an affordable, locally relevant alternative to expensive international solutions.
 5. Emphasize Messenger, SMS, WhatsApp, and Viber integration as a competitive advantage.
+
+</div>
